@@ -11,29 +11,31 @@ const { text, to, primary, white }: Props = Astro.props;
 
 <a class:list={['button', { "primary-button": primary, "white-button": white }]} href={to}>{ text }</a>
 
-<style>
+<style lang="scss">
+  @import 'src/styles/variables.scss';
+
   .button {
     padding: 0.75rem 1.5rem;
     border-radius: 0.25rem;
     font-size: 1rem;
     font-weight: 500;
     text-decoration: none;
-    color: var(--black);
+    color: $black;
     width: max-content;
-  }
 
-  .button:hover {
-    filter: grayscale(.8);
+    &:hover {
+      filter: grayscale(.8);
+    }
   }
 
   .primary-button {
-    background-color: var(--primary-500);
-    border: 1px solid var(--primary-500);
-    color: var(--white);
+    background-color: $primary-500;
+    border: 1px solid $primary-500;
+    color: $white;
   }
 
   .white-button {
-    border: 1px solid var(--primary-500);
-    color: var(--primary-500);
+    border: 1px solid $primary-500;
+    color: $primary-500;
   }
 </style>

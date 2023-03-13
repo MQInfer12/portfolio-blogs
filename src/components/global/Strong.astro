@@ -8,7 +8,9 @@ const { primary }: Props = Astro.props;
 
 <strong class:list={['strong', { 'strong-primary': primary }]}><slot/></strong>
 
-<style>
+<style lang="scss">
+  @import 'src/styles/variables.scss';
+
   .strong {
     font-weight: 500;
     position: relative;
@@ -19,7 +21,7 @@ const { primary }: Props = Astro.props;
     content: "";
     width: 100%;
     height: 25%;
-    background-color: var(--primary-500);
+    background-color: $primary-500;
     opacity: 0.5;
     position: absolute;
     bottom: 0.2rem;

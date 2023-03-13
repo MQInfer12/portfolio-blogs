@@ -17,9 +17,11 @@ import Glimpse from "../../global/Glimpse.astro";
   <Glimpse color="rgba(255, 143, 61, 0.6)" left="80%" top="90%" />
 </section>
 
-<style>
+<style lang="scss">
+  @import 'src/styles/variables.scss';
+
   .first-section {
-    height: calc(100dvh - var(--navbar-height));
+    height: calc(100dvh - $navbar-height);
     display: flex;
     align-items: center;
     justify-content: center;

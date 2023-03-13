@@ -12,9 +12,11 @@ const { stadistic, text }: Props = Astro.props;
   <p>{ text }</p>
 </div>
 
-<style>
+<style lang="scss">
+  @import 'src/styles/variables.scss';
+
   .stat {
-    background-color: var(--secondary-100-transparent);
+    background-color: $secondary-100-transparent;
     width: 100%;
     height: 100%;
     display: flex;
@@ -22,15 +24,14 @@ const { stadistic, text }: Props = Astro.props;
     gap: .5rem;
     align-items: center;
     justify-content: center;
-  }
 
-  .stat b {
-    font-size: 2rem;
-    color: var(--gray-700);
-    font-weight: 600;
-  }
-
-  .stat p {
-    color: var(--gray-500);
+    & b {
+      font-size: 2rem;
+      color: $gray-700;
+      font-weight: 600;
+    }
+    & p {
+      color: $gray-500;
+    }
   }
 </style>

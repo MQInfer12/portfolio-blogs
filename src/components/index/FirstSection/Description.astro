@@ -13,21 +13,22 @@ import Strong from "../../global/Strong.astro";
   <Link text="Say Hello!" to="#" primary />
 </div>
 
-<style>
+<style lang="scss">
+  @import 'src/styles/variables.scss';
+
   .first-description {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     width: 40.5rem;
-  }
 
-  .first-description > h2 {
-    font-size: 4.5rem;
-    color: var(--gray-900);
-  }
-
-  .first-description > p {
-    font-size: 1.125rem;
-    color: var(--gray-600);
+    & > h2 {
+      font-size: 4.5rem;
+      color: $gray-900;
+    }
+    & > p {
+      font-size: 1.125rem;
+      color: $gray-600;
+    }
   }
 </style>

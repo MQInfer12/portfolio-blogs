@@ -10,7 +10,9 @@ const { color, top, left }: Props = Astro.props;
 
 <div class="glimpse"></div>
 
-<style define:vars={{ color, top, left }}>
+<style lang="scss" define:vars={{ color, top, left }}>
+  @import 'src/styles/variables.scss';
+
   .glimpse {
     position: absolute;
     width: 55rem;
