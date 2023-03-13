@@ -1,0 +1,63 @@
+---
+import type { SocialData } from '../../../interfaces/SocialData';
+
+interface Props {
+  data?: SocialData[]
+}
+
+const { data }: Props = Astro.props;
+
+const mySocialMedia: SocialData[] = [{
+  href: "https://github.com/MQInfer12",
+  icon: "fa-brands fa-github"
+}, {
+  href: "https://www.linkedin.com/in/mauricio-molina-quinteros-72112925b/",
+  icon: "fa-brands fa-linkedin-in"
+}, {
+  href: "https://www.instagram.com/mau_mq12/",
+  icon: "fa-brands fa-instagram"
+}];
+
+const dataMapper = data ? data : mySocialMedia;
+---
+
+<div class="social-media-container">
+  {
+    dataMapper.map((v, i) => (
+      <a class="social-media-link" href={v.href}>
+        <i class={v.icon}></i>
+      </a>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  @import '/src/styles/variables.scss';
+  
+  .social-media-container {
+    padding: .75rem;
+    display: flex;
+    background-color: $white;
+    box-shadow: $box-shadow-100;
+    border-radius: 0.25rem;
+  }
+
+  .social-media-link {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.25rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: $primary-500;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: $primary-500;
+      color: $white;
+    }
+  }
+</style>

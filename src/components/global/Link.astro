@@ -9,10 +9,17 @@ interface Props {
 const { text, to, primary, white }: Props = Astro.props;
 ---
 
-<a class:list={['button', { "primary-button": primary, "white-button": white }]} href={to}>{ text }</a>
+<div class="button-container">
+  <a class:list={['button', { "primary-button": primary, "white-button": white }]} href={to}>{ text }</a>
+</div>
 
 <style lang="scss">
-  @import 'src/styles/variables.scss';
+  @import '/src/styles/variables.scss';
+
+  .button-container {
+    display: inline;
+    padding: 0.75rem 0;
+  }
 
   .button {
     padding: 0.75rem 1.5rem;

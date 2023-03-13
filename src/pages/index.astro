@@ -1,6 +1,7 @@
 ---
 import FirstSection from "../components/index/FirstSection/FirstSection.astro";
 import Navbar from "../components/index/Navbar/Navbar.astro";
+import SecondSection from "../components/index/SecondSection/SecondSection.astro";
 ---
 
 <html lang="en">
@@ -10,24 +11,30 @@ import Navbar from "../components/index/Navbar/Navbar.astro";
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/db678f56b4.js" crossorigin="anonymous"></script>
 		<title>Astro</title>
 	</head>
 	<body>
 		<Navbar />
 		<main>
 			<FirstSection />
+			<SecondSection />
 		</main>
 	</body>
 </html>
 
 <style lang="scss" is:global>
-	@import 'src/styles/variables.scss';
+	@import '/src/styles/variables.scss';
 
 	* {
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
 		font-family: 'Work Sans';
+	}
+
+	body {
+		@include scrollbar();
 	}
 
 	main {

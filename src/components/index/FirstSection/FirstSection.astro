@@ -2,33 +2,43 @@
 import Description from "./Description.astro";
 import Stats from "./Stats.astro";
 import ProfilePic from "../../../assets/images/index/profile.png";
-import Glimpse from "../../global/Glimpse.astro";
+import Picture from "../../global/Picture.astro";
+import DevCard from "./DevCard.astro";
+import GlimpseContainer from "../../global/Glimpse/GlimpseContainer.astro";
+import Glimpse from "../../global/Glimpse/Glimpse.astro";
 ---
 
 <section class="first-section">
-  <div class="first-section-left">
-    <Description />
-    <Stats />
+  <div class="first-section-info">
+    <div class="first-section-left">
+      <Description />
+      <Stats />
+    </div>
+    <Picture src={ProfilePic} alt="Mauricio-photo" height="39.75rem" width="33.5rem" />
   </div>
-  <div class="first-section-right">
-    <img src={ProfilePic} />
-  </div>
-  <Glimpse color="rgba(218, 77, 241, 0.4)" left="90%" top="-90%" />
-  <Glimpse color="rgba(255, 143, 61, 0.6)" left="80%" top="90%" />
+  <DevCard />
+  <GlimpseContainer>
+    <Glimpse left="90%" top="-50%" secondary />
+    <Glimpse left="80%" top="50%" primary />
+    <Glimpse left="10%" top="90%" secondary />
+  </GlimpseContainer>
 </section>
 
 <style lang="scss">
-  @import 'src/styles/variables.scss';
+  @import '/src/styles/variables.scss';
 
   .first-section {
+    height: calc(180dvh - $navbar-height);
+    position: relative;
+    isolation: isolate;
+  }
+
+  .first-section-info {
     height: calc(100dvh - $navbar-height);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8.5rem;
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
   }
 
   .first-section-left {
@@ -37,12 +47,5 @@ import Glimpse from "../../global/Glimpse.astro";
     flex-direction: column;
     justify-content: flex-end;
     gap: 8.875rem;
-  }
-
-  .first-section-right img {
-    border-radius: 1.5rem;
-    width: 33.5rem;
-    height: 39.75rem;
-    object-fit: cover;
   }
 </style>

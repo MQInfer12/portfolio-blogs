@@ -1,0 +1,45 @@
+---
+import Picture from "../../global/Picture.astro";
+import ProfilePic from "../../../assets/images/index/profile.png";
+import SocialContainer from "./SocialContainer.astro";
+import DevCardDescription from "./DevCardDescription.astro";
+---
+
+<div class="dev-card">
+  <div class="dev-card-positioner">
+    <Picture src={ProfilePic} alt="Mauricio-img-card" height="31.5rem" width="26.5rem" />
+    <div class="absolute">
+      <SocialContainer />
+    </div>
+  </div>
+  <DevCardDescription />
+</div>
+
+<style lang="scss">
+  @import '/src/styles/variables.scss';
+  
+  .dev-card {
+    display: flex;
+    gap: 11rem;
+    align-items: center;
+    padding: 7rem;
+    position: absolute;
+    bottom: -30%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    background-color: $white;
+    border-radius: 1.5rem;
+    box-shadow: $box-shadow-200;
+  }
+
+  .dev-card-positioner {
+    position: relative;
+
+    & > .absolute {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+</style>

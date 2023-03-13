@@ -1,0 +1,35 @@
+---
+interface Props {
+  top: string
+  left: string
+  primary?: boolean
+  secondary?: boolean
+}
+
+const { top, left, primary, secondary }: Props = Astro.props;
+---
+
+<div class:list={['glimpse', { primary: primary, secondary: secondary }]}></div>
+
+<style lang="scss" define:vars={{ top, left }}>
+  @import '/src/styles/variables.scss';
+
+  .glimpse {
+    position: absolute;
+    width: 55rem;
+    height: 55rem;
+    background: var(--color);
+    filter: blur(300px);
+    top: var(--top);
+    left: var(--left);
+    opacity: 0.6;
+  }
+  
+  .primary {
+    background: $primary-500;
+  }
+
+  .secondary {
+    background: $secondary-100;
+  }
+</style>
