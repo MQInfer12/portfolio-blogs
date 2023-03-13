@@ -1,0 +1,33 @@
+---
+import Link from "../../global/Link.astro";
+import Strong from "../../global/Strong.astro";
+---
+
+<div class="first-description">
+  <h2>Hello, I’m Mauricio Molina</h2>
+  <p>
+    I'm a Freelance <Strong primary>UI/UX Designer</Strong> and <Strong primary>Developer</Strong> based in London, England. 
+    I strives to build immersive and beautiful web applications 
+    through carefully crafted code and user-centric design.
+  </p>
+  <Link text="Say Hello!" to="#" primary />
+</div>
+
+<style>
+  .first-description {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 40.5rem;
+  }
+
+  .first-description > h2 {
+    font-size: 4.5rem;
+    color: var(--gray-900);
+  }
+
+  .first-description > p {
+    font-size: 1.125rem;
+    color: var(--gray-600);
+  }
+</style>

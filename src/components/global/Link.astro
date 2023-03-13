@@ -1,0 +1,39 @@
+---
+interface Props {
+  text: string
+  to: string
+  primary?: boolean
+  white?: boolean
+}
+
+const { text, to, primary, white }: Props = Astro.props;
+---
+
+<a class:list={['button', { "primary-button": primary, "white-button": white }]} href={to}>{ text }</a>
+
+<style>
+  .button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--black);
+    width: max-content;
+  }
+
+  .button:hover {
+    filter: grayscale(.8);
+  }
+
+  .primary-button {
+    background-color: var(--primary-500);
+    border: 1px solid var(--primary-500);
+    color: var(--white);
+  }
+
+  .white-button {
+    border: 1px solid var(--primary-500);
+    color: var(--primary-500);
+  }
+</style>

@@ -1,0 +1,46 @@
+---
+import Description from "./Description.astro";
+import Stats from "./Stats.astro";
+import ProfilePic from "../../../assets/images/index/profile.png";
+import Glimpse from "../../global/Glimpse.astro";
+---
+
+<section class="first-section">
+  <div class="first-section-left">
+    <Description />
+    <Stats />
+  </div>
+  <div class="first-section-right">
+    <img src={ProfilePic} />
+  </div>
+  <Glimpse color="rgba(218, 77, 241, 0.4)" left="90%" top="-90%" />
+  <Glimpse color="rgba(255, 143, 61, 0.6)" left="80%" top="90%" />
+</section>
+
+<style>
+  .first-section {
+    height: calc(100dvh - var(--navbar-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8.5rem;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .first-section-left {
+    height: 39.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 8.875rem;
+  }
+
+  .first-section-right img {
+    border-radius: 1.5rem;
+    width: 33.5rem;
+    height: 39.75rem;
+    object-fit: cover;
+  }
+</style>

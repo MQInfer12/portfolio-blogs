@@ -1,0 +1,24 @@
+---
+interface Props {
+  color: string
+  top: string
+  left: string
+}
+
+const { color, top, left }: Props = Astro.props;
+---
+
+<div class="glimpse"></div>
+
+<style define:vars={{ color, top, left }}>
+  .glimpse {
+    position: absolute;
+    width: 55rem;
+    height: 55rem;
+    background: var(--color);
+    filter: blur(300px);
+    z-index: -1;
+    top: var(--top);
+    left: var(--left);
+  }
+</style>
