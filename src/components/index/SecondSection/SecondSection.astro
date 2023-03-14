@@ -1,15 +1,69 @@
 ---
+import Description from "./Description.astro";
+import IconCard from "./IconCard.astro";
 ---
 
 <section class="second-section">
-
+  <Description />
+  <div class="columns">
+    <div class="row">
+      <IconCard 
+        title="1. React"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu."
+      >
+        <i class="fa-brands fa-react" slot="icon"></i>
+      </IconCard>
+      <IconCard 
+        title="3. Laravel"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu."
+      >
+        <i class="fa-brands fa-laravel" slot="icon"></i>
+      </IconCard>
+    </div>
+    <div class="row">
+      <IconCard 
+        title="2. Javascript"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu."
+      >
+        <i class="fa-brands fa-square-js" slot="icon"></i>
+      </IconCard>
+      <IconCard 
+        title="4. Angular"
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu."
+      >
+        <i class="fa-brands fa-angular" slot="icon"></i>
+      </IconCard>
+    </div>
+  </div>
 </section>
 
 <style lang="scss">
   @import '/src/styles/variables.scss';
   
   .second-section {
-    height: calc(100dvh - $navbar-height);
+    height: calc(120dvh - $navbar-height);
     background-color: $gray-50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9rem;
+  }
+
+  .columns {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    &:first-child {
+      margin-bottom: 1.5rem;
+    }
+    &:last-child {
+      margin-top: 1.5rem;
+    }
   }
 </style>

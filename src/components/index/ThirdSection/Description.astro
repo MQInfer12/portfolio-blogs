@@ -1,0 +1,33 @@
+---
+---
+
+<div>
+  <h2>Projects</h2>
+  <p>
+    There are many variations of passages of Lorem Ipsum available,
+    but the majority have suffered alteration.
+  </p>
+</div>
+
+<style lang="scss">
+  @import '/src/styles/variables.scss';
+  
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+
+    & > h2 {
+      font-size: 3rem;
+      color: $gray-900;
+    }
+
+    & > p {
+      color: $gray-400;
+      font-size: 1.125rem;
+      line-height: 1.5rem;
+      max-width: 36rem;
+    }
+  }
+</style>

@@ -1,0 +1,40 @@
+---
+import Link from "../../global/Link.astro";
+import CardGrid from "./CardGrid.astro";
+import Description from "./Description.astro";
+import ImageCard from "./ImageCard.astro";
+---
+
+<section>
+  <Description />
+  <CardGrid 
+    childWidth="26.5rem"
+    maxPerRow={3} 
+  >
+    <ImageCard />
+    <ImageCard />
+    <ImageCard />
+    <ImageCard />
+    <ImageCard />
+    <ImageCard />
+  </CardGrid>
+  <Link 
+    text="More Project"
+    to="#"
+    primary
+  />
+</section>
+
+<style lang="scss">
+  @import '/src/styles/variables.scss';
+  
+  section {
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    gap: 3.125rem;
+    align-items: center;
+    justify-content: center;
+    padding: 6.25rem 0;
+  }
+</style>

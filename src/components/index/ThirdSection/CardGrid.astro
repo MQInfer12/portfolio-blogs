@@ -1,0 +1,25 @@
+---
+interface Props {
+  childWidth: string
+  maxPerRow: number
+}
+
+const { childWidth, maxPerRow }: Props = Astro.props;
+---
+
+<div class="container">
+  <slot />
+</div>
+
+<style lang="scss" define:vars={{ childWidth, maxPerRow }}>
+  @import '/src/styles/variables.scss';
+  
+  .container {
+    --gap: 1.5rem;
+    display: flex;
+    gap: var(--gap);
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: calc(calc(var(--maxPerRow) * var(--childWidth)) + calc(calc(var(--maxPerRow) - 1) * var(--gap)));
+  }
+</style>
