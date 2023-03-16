@@ -1,15 +1,15 @@
 ---
 import Picture from "../../global/Picture.astro";
-import ProfilePic from "../../../assets/images/index/profile.png";
+import ProfilePic from "../../../assets/images/index/profile2.png";
 import SocialContainer from "./SocialContainer.astro";
 import DevCardDescription from "./DevCardDescription.astro";
 ---
 
-<div class="dev-card">
+<div class="dev-card" id="about">
   <div class="dev-card-positioner">
     <Picture src={ProfilePic} alt="Mauricio-img-card" height="31.5rem" width="26.5rem" />
     <div class="absolute">
-      <SocialContainer />
+      <SocialContainer blank white padding shadow />
     </div>
   </div>
   <DevCardDescription />
@@ -19,9 +19,11 @@ import DevCardDescription from "./DevCardDescription.astro";
   @import '/src/styles/variables.scss';
   
   .dev-card {
+		scroll-margin: 3.5rem;
     display: flex;
     gap: 11rem;
     align-items: center;
+    justify-content: center;
     padding: 7rem;
     position: absolute;
     bottom: -30%;

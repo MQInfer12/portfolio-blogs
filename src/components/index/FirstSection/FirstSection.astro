@@ -8,7 +8,7 @@ import GlimpseContainer from "../../global/Glimpse/GlimpseContainer.astro";
 import Glimpse from "../../global/Glimpse/Glimpse.astro";
 ---
 
-<section class="first-section">
+<section id="home" class="first-section">
   <div class="first-section-info">
     <div class="first-section-left">
       <Description />
@@ -18,9 +18,9 @@ import Glimpse from "../../global/Glimpse/Glimpse.astro";
   </div>
   <DevCard />
   <GlimpseContainer>
-    <Glimpse left="90%" top="-50%" secondary />
-    <Glimpse left="80%" top="50%" primary />
-    <Glimpse left="10%" top="90%" secondary />
+    <Glimpse left="90%" top="-50%" primary />
+    <Glimpse left="80%" top="50%" secondary />
+    <Glimpse left="10%" top="90%" primary />
   </GlimpseContainer>
 </section>
 
@@ -39,6 +39,7 @@ import Glimpse from "../../global/Glimpse/Glimpse.astro";
     align-items: center;
     justify-content: center;
     gap: 8.5rem;
+    scroll-margin: 0;
   }
 
   .first-section-left {

@@ -1,0 +1,34 @@
+---
+import Link from "../../global/Link.astro";
+import ExpandableSection from "../ExpandableSection.astro";
+---
+
+<ExpandableSection black>
+  <h2>
+    Do you have Project Idea?
+    Let's discuss your project!
+  </h2>
+  <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</p>
+  <Link text="Let's work Together" to="#" primary>
+    <i class="fa-solid fa-arrow-right" slot="right"></i>
+  </Link>
+</ExpandableSection>
+
+<style lang="scss">
+  @import '/src/styles/variables.scss';
+  
+  h2 {
+    color: $white;
+    font-size: 3rem;
+    width: 38.75rem;
+    text-align: center;
+  }
+
+  p {
+    width: 36rem;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    color: $gray-300;
+    text-align: center;
+  }
+</style>

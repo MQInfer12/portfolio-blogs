@@ -1,29 +1,42 @@
 ---
 import Link from "../../global/Link.astro";
+import ExpandableSection from "../ExpandableSection.astro";
 import CardGrid from "./CardGrid.astro";
 import Description from "./Description.astro";
 import ImageCard from "./ImageCard.astro";
+import PsicotestLanding from "/src/assets/images/index/psicotest_landing.png";
+import TourismLanding from "/src/assets/images/index/tourism_landing.png";
 ---
 
-<section>
-  <Description />
+<ExpandableSection>
+  <Description id="projects" />
   <CardGrid 
     childWidth="26.5rem"
     maxPerRow={3} 
   >
-    <ImageCard />
-    <ImageCard />
-    <ImageCard />
-    <ImageCard />
-    <ImageCard />
-    <ImageCard />
+    <ImageCard
+      category="React - Laravel"
+      title="Psicotest"
+      description="A web application of customizable psychological tests that can be easily shared with QR or direct link, it also includes a calendar for appointments and a chat to solve doubts"
+      src={PsicotestLanding}
+      to="https://psicotest-production.web.app/#/"
+      blank
+    />
+    <ImageCard
+      category="Angular - React - Laravel"
+      title="Tourism Cochabamba"
+      description="A tourism application developed jointly with the Cochabamba mayor's office to show attractions and events in the city in detail and in 360º, it also has an administrator page to modify data."
+      src={TourismLanding}
+      to="https://cochabamba-turismo.web.app/#/" 
+      blank
+    />
   </CardGrid>
   <Link 
-    text="More Project"
+    text="More Projects"
     to="#"
     primary
   />
-</section>
+</ExpandableSection>
 
 <style lang="scss">
   @import '/src/styles/variables.scss';

@@ -1,0 +1,38 @@
+---
+import Link from "../../global/Link.astro";
+
+interface Props {
+  contactPrimary?: boolean
+  gray?: boolean
+}
+
+const { contactPrimary, gray }: Props = Astro.props;
+---
+
+<ul class="navbar-list">
+  <li>
+    <Link text="Home" to="#home" gray={gray} />
+  </li>
+  <li>
+    <Link text="About" to="#about" gray={gray} />
+  </li>
+  <li>
+    <Link text="Tools" to="#tools" gray={gray} />
+  </li>
+  <li>
+    <Link text="Projects" to="#projects" gray={gray} />
+  </li>
+  <!-- <li>
+    <Link text="Blogs" to="#" gray={gray} />
+  </li> -->
+  <li>
+    <Link text="Contact" to="#contact" primary={contactPrimary} gray={gray} />
+  </li>
+</ul>
+
+<style lang="scss">
+  .navbar-list {
+    display: flex;
+    list-style: none;
+  }
+</style>

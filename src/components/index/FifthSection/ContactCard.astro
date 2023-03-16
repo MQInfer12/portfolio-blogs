@@ -1,0 +1,84 @@
+---
+import SocialContainer from "../FirstSection/SocialContainer.astro";
+import ContactCardDescription from "./ContactCardDescription.astro";
+import ContactForm from "./ContactForm.astro";
+import DataCard from "./DataCard.astro";
+import ChangeActiveState from "./ChangeActiveState.jsx";
+---
+
+<div class="content" id="contact">
+  <div class="column left">
+    <ContactCardDescription />
+    <div class="data-card-container">
+      <ChangeActiveState client:load>
+        <DataCard 
+          title="Address:"
+          slot="0"
+        >
+          <i class="fa-solid fa-location-dot" slot="icon"></i>
+          <address>Cochabamba, Pacata Alta</address>
+        </DataCard>
+        <DataCard 
+          title="My Email:"
+          slot="1"
+        >
+          <i class="fa-solid fa-location-dot" slot="icon"></i>
+          <address>maummq@gmail.com</address>
+        </DataCard>
+        <DataCard 
+          title="Call Me Now:"
+          slot="2"
+        >
+          <i class="fa-solid fa-location-dot" slot="icon"></i>
+          <address>(591) 76407344</address>
+        </DataCard>
+      </ChangeActiveState>
+    </div>
+    <SocialContainer blank gap />
+  </div>
+  <div class="column right">
+    <p>There are many variations of passages of Lorem Ipsu available, but the majority have suffered alte.</p>
+    <ContactForm />
+  </div>
+</div>
+
+<style lang="scss">
+  @import '/src/styles/variables.scss';
+  
+  .content {
+		scroll-margin: 4rem;
+    padding: 5.5rem;
+    display: flex;
+    gap: 6.5rem;
+    box-shadow: $box-shadow-200;
+    border-radius: 1rem;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .left {
+    width: 31.7rem;
+    gap: 2.125rem;
+  }
+
+  .right {
+    width: 35rem;
+    gap: 3rem;
+    justify-content: center;
+
+    & > p {
+      color: $gray-400;
+      font-size: 1.125rem;
+      line-height: 1.5rem;
+    }
+  }
+
+  .data-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+  }
+</style>

@@ -1,0 +1,46 @@
+---
+type InputType = "text" | "number" | "email";
+
+interface Props {
+  type: InputType
+  name: string
+  placeholder: string
+  required?: boolean
+}
+
+const { placeholder, type, name, required } = Astro.props;
+---
+
+<input 
+  type={`${type}`}
+  name={name}
+  placeholder={placeholder} 
+  required={required}
+  value=""
+/>
+
+<style lang="scss">
+  @import '/src/styles/variables.scss';
+  
+  input {
+    width: 100%;
+    padding: 0 .125rem .875rem;
+    font-size: 1.125rem;
+    color: $gray-500;
+    outline: 0;
+    border: none;
+    border-bottom: 2px solid $gray-100;
+    transition: all 0.3s;
+    &::placeholder {
+      transition: all 0.3s;
+    }
+
+    &:not(:placeholder-shown):valid, &:focus {
+      border-bottom: 2px solid $primary-500;
+      
+      &::placeholder {
+        color: $primary-500;
+      }
+    }
+  }
+</style>

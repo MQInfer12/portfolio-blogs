@@ -1,4 +1,6 @@
 ---
+import IconBlock from '../../global/IconBlock.astro';
+
 interface Props {
   title: string
   description: string
@@ -7,12 +9,10 @@ interface Props {
 const { title, description }: Props = Astro.props;
 ---
 
-<div class="card">
-  <div class="icon-container">
-    <div>
-      <slot name="icon" />
-    </div>
-  </div>
+<div class="card" id="tools">
+  <IconBlock padding="1.25rem" size="1.25rem">
+    <slot name="icon" />
+  </IconBlock>
   <div class="text">
     <h3>{ title }</h3>
     <p>{ description }</p>
@@ -23,6 +23,7 @@ const { title, description }: Props = Astro.props;
   @import '/src/styles/variables.scss';
   
   .card {
+		scroll-margin: 6rem;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -31,28 +32,10 @@ const { title, description }: Props = Astro.props;
     border-radius: .75rem;
   }
 
-  .icon-container {
-    color: $primary-500;
-    background-color: $secondary-100-transparent;
-    padding: 1.25rem;
-    width: max-content;
-    border-radius: .5rem;
-    transition: all 0.3s;
-
-    & > div {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 1.25rem;
-      height: 1.25rem;
-      font-size: 1.25rem;
-    }
-  }
-
-  .card:hover .icon-container {
+  /* .card:hover .icon-container {
     color: $white;
     background-color: $primary-500;
-  }
+  } */
 
   .text {
     width: 15.5rem;

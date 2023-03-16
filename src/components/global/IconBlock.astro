@@ -1,0 +1,41 @@
+---
+interface Props {
+  padding: string
+  size: string
+}
+
+const { padding, size }: Props = Astro.props;
+---
+
+<div class="icon-container">
+  <div>
+    <slot />
+  </div>
+</div>
+
+<style lang="scss" define:vars={{ padding, size }}>
+  @import '/src/styles/variables.scss';
+  
+  .icon-container {
+    color: $primary-500;
+    background-color: $secondary-100-transparent;
+    padding: var(--padding);
+    width: max-content;
+    border-radius: .5rem;
+    transition: all 0.3s;
+
+    & > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--size);
+      height: var(--size);
+      font-size: var(--size);
+    }
+
+    &:hover {
+      color: $white;
+      background-color: $primary-500;
+    }
+  }
+</style>

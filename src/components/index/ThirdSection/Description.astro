@@ -1,8 +1,13 @@
 ---
+interface Props {
+  id?: string
+}
+
+const { id } = Astro.props;
 ---
 
-<div>
-  <h2>Projects</h2>
+<div id={id}>
+  <h2>Featured Projects</h2>
   <p>
     There are many variations of passages of Lorem Ipsum available,
     but the majority have suffered alteration.

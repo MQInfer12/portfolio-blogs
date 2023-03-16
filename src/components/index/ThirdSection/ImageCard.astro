@@ -1,15 +1,28 @@
 ---
 import Link from "../../global/Link.astro";
+
+interface Props {
+  src: string
+  category: string
+  title: string
+  description: string
+  to: string;
+  blank?: boolean;
+}
+
+const { category, description, src, title, to, blank }: Props = Astro.props;
 ---
 
 <div class="card">
-  <img />
+  <img src={src} />
   <div>
-    <small>UI-UX Design</small>
-    <h3>Product Admin Dashboard</h3>
-    <p>Vivamus eleifend convallis ante, non pharetra libero molestie laoreet. Donec id imperdiet lacus.</p>
+    <small>{ category }</small>
+    <h3>{ title }</h3>
+    <p>{ description }.</p>
     <div>
-      <Link text="Case study" to="#" white />
+      <Link text="Visit" to={to} white blank={blank} >
+        <i class="fa-solid fa-arrow-right" slot="right"></i>
+      </Link>
     </div>
   </div>
 </div>
@@ -22,7 +35,7 @@ import Link from "../../global/Link.astro";
     flex-direction: column;
     box-shadow: $box-shadow-200;
     width: 26.5rem;
-    border-radius: .5rem;
+    border-radius: 1rem;
     overflow: hidden;
 
     & > img {

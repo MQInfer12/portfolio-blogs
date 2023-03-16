@@ -1,10 +1,16 @@
 ---
 import ProfilePic from '../../../assets/images/index/profile.png';
+
+interface Props {
+  white?: boolean
+}
+
+const { white }: Props = Astro.props;
 ---
 
 <div class="navbar-logo-container">
   <img src={ProfilePic} alt="profile-pic" />
-  <h1>Mauricio</h1>
+  <h1 class:list={[{ white }]}>Mauricio</h1>
 </div>
 
 <style lang="scss">
@@ -26,5 +32,9 @@ import ProfilePic from '../../../assets/images/index/profile.png';
       font-weight: 600;
       color: $gray-900;
     }
+  }
+
+  .white {
+    color: $white !important;
   }
 </style>

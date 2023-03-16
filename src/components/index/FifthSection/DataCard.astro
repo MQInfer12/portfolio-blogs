@@ -1,0 +1,51 @@
+---
+import IconBlock from '../../global/IconBlock.astro';
+
+interface Props {
+  title: string
+  active?: boolean
+}
+
+const { title, active }: Props = Astro.props; 
+---
+
+<div class:list={['container', { active }]}>
+  <IconBlock padding=".75rem" size="1.5rem" >
+    <slot name="icon" />
+  </IconBlock>
+  <div>
+    <p>{ title }</p>
+    <slot />
+  </div>
+</div>
+
+<style lang="scss">
+  @import '/src/styles/variables.scss';
+  
+  .container {
+    padding: 1.5rem;
+    display: flex;
+    gap: .75rem;
+    border-radius: .75rem;
+    width: 20.75rem;
+    transition: all 0.3s;
+  
+    & > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+
+    *:last-child {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 1rem;
+      color: $gray-900;
+    }
+  }
+
+  p {
+    font-size: .875rem;
+    color: $gray-700;
+  }
+</style>

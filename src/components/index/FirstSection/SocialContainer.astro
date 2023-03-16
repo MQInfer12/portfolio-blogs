@@ -3,9 +3,14 @@ import type { SocialData } from '../../../interfaces/SocialData';
 
 interface Props {
   data?: SocialData[]
+  blank?: boolean
+  white?: boolean
+  gap?: boolean
+  padding?: boolean
+  shadow?: boolean
 }
 
-const { data }: Props = Astro.props;
+const { data, blank, white, gap, padding, shadow }: Props = Astro.props;
 
 const mySocialMedia: SocialData[] = [{
   href: "https://github.com/MQInfer12",
@@ -21,10 +26,10 @@ const mySocialMedia: SocialData[] = [{
 const dataMapper = data ? data : mySocialMedia;
 ---
 
-<div class="social-media-container">
+<div class:list={['social-media-container', { white, gap, padding, shadow }]}>
   {
     dataMapper.map((v, i) => (
-      <a class="social-media-link" href={v.href}>
+      <a class="social-media-link" target={blank ? "_blank" : "_self"} href={v.href}>
         <i class={v.icon}></i>
       </a>
     ))
@@ -35,11 +40,9 @@ const dataMapper = data ? data : mySocialMedia;
   @import '/src/styles/variables.scss';
   
   .social-media-container {
-    padding: .75rem;
     display: flex;
-    background-color: $white;
-    box-shadow: $box-shadow-100;
     border-radius: 0.25rem;
+    width: max-content;
   }
 
   .social-media-link {
@@ -59,5 +62,18 @@ const dataMapper = data ? data : mySocialMedia;
       background-color: $primary-500;
       color: $white;
     }
+  }
+
+  .white {
+    background-color: $white;
+  }
+  .gap {
+    gap: .75rem;
+  }
+  .padding {
+    padding: .75rem;
+  }
+  .shadow {
+    box-shadow: $box-shadow-100;
   }
 </style>

@@ -1,45 +1,16 @@
 ---
+import FifthSection from "../components/index/FifthSection/FifthSection.astro";
 import FirstSection from "../components/index/FirstSection/FirstSection.astro";
-import Navbar from "../components/index/Navbar/Navbar.astro";
+import FourthSection from "../components/index/FourthSection/FourthSection.astro";
 import SecondSection from "../components/index/SecondSection/SecondSection.astro";
 import ThirdSection from "../components/index/ThirdSection/ThirdSection.astro";
+import Html from "../components/layouts/Html.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/db678f56b4.js" crossorigin="anonymous"></script>
-		<title>Astro</title>
-	</head>
-	<body>
-		<Navbar />
-		<main>
-			<FirstSection />
-			<SecondSection />
-			<ThirdSection />
-		</main>
-	</body>
-</html>
-
-<style lang="scss" is:global>
-	@import '/src/styles/variables.scss';
-
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-		font-family: 'Work Sans';
-	}
-
-	body {
-		@include scrollbar();
-	}
-
-	main {
-		margin-top: $navbar-height;
-	}
-</style>
+<Html title="Home">
+	<FirstSection />
+	<SecondSection />
+	<ThirdSection />
+	<FourthSection />
+	<FifthSection />
+</Html>
