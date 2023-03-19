@@ -9,7 +9,7 @@ interface Props {
 const { title, active }: Props = Astro.props; 
 ---
 
-<div class:list={['container', { active }]}>
+<div class:list={['data-card-container', { active }]}>
   <IconBlock padding=".75rem" size="1.5rem" >
     <slot name="icon" />
   </IconBlock>
@@ -22,13 +22,13 @@ const { title, active }: Props = Astro.props;
 <style lang="scss">
   @import '/src/styles/variables.scss';
   
-  .container {
+  .data-card-container {
     padding: 1.5rem;
     display: flex;
     gap: .75rem;
     border-radius: .75rem;
     width: 20.75rem;
-    transition: all 0.3s;
+    transition: all 1s;
   
     & > div {
       display: flex;
@@ -42,6 +42,11 @@ const { title, active }: Props = Astro.props;
       font-size: 1rem;
       color: $gray-900;
     }
+  }
+
+  .active {
+    background-color: #FFFFFF;
+    box-shadow: 0px .75rem 6.5rem rgba(28, 25, 25, 0.2);
   }
 
   p {

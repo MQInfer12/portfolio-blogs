@@ -1,0 +1,60 @@
+---
+import Button from "../global/Button.astro";
+import InputText from "../global/InputText.astro";
+---
+
+<form>
+  <div>
+    <InputText identifier="contact-input" type="text" name="name" placeholder="Name*" required />
+    <InputText identifier="contact-input" type="email" name="email" placeholder="Email*" required />
+    <InputText identifier="contact-input" type="text" name="location" placeholder="Location" />
+    <div>
+      <InputText identifier="contact-input" type="text" name="subject" placeholder="Subject*" required />
+      <InputText identifier="contact-input" type="text" name="budget" placeholder="Budget" />
+    </div>
+    <InputText identifier="contact-input" type="text" name="message" placeholder="Message*" />
+  </div>
+  <Button identifier="contact-button" text="Submit" primary>
+    <i class="fa-solid fa-paper-plane" slot="right"></i>
+  </Button>
+</form>
+
+<script>
+  const button = document.getElementById('contact-button');
+
+  button?.addEventListener("click", (e) => {
+    e.preventDefault();
+    let inputs = document.querySelectorAll<HTMLInputElement>('.contact-input');
+    let values: string[] = [];
+    inputs.forEach(element => {
+      values.push(element.value);
+    });
+    const [ name, email, locat, subject, budget, message ] = values;
+    location.href = ``;
+  });
+</script>
+
+<style lang="scss">
+  @import '/src/styles/variables.scss';
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      & > div {
+        display: flex;
+        gap: 1.5rem;
+
+        & input:last-child {
+          flex-grow: 2;
+        }
+      }
+    }
+  }
+</style>

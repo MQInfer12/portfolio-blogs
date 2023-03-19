@@ -1,38 +1,60 @@
 ---
 import Link from "../../global/Link.astro";
 
-interface Props {
-  contactPrimary?: boolean
-  gray?: boolean
+interface GoTo {
+  text: string
+  to: string
+  primary?: boolean
 }
 
-const { contactPrimary, gray }: Props = Astro.props;
+interface Props {
+  links?: GoTo[]
+  contactPrimary?: boolean
+  gray?: boolean,
+  column?: boolean
+}
+
+const { 
+  contactPrimary,
+  links = [{
+    text: "Home",
+    to: "#home"
+  }, {
+    text: "About",
+    to: "#about"
+  }, {
+    text: "Tools",
+    to: "#tools"
+  }, {
+    text: "Projects",
+    to: "#projects"
+  }, {
+    text: "Contact",
+    to: "#contact",
+    primary: contactPrimary
+  }], 
+  gray,
+  column
+}: Props = Astro.props;
 ---
 
-<ul class="navbar-list">
-  <li>
-    <Link text="Home" to="#home" gray={gray} />
-  </li>
-  <li>
-    <Link text="About" to="#about" gray={gray} />
-  </li>
-  <li>
-    <Link text="Tools" to="#tools" gray={gray} />
-  </li>
-  <li>
-    <Link text="Projects" to="#projects" gray={gray} />
-  </li>
-  <!-- <li>
-    <Link text="Blogs" to="#" gray={gray} />
-  </li> -->
-  <li>
-    <Link text="Contact" to="#contact" primary={contactPrimary} gray={gray} />
-  </li>
+<ul class:list={["navbar-list", { column }]}>
+  {
+    links.map((v, i) => (
+      <li>
+        <Link text={v.text} to={v.to} primary={v.primary} gray={gray} />  
+      </li>
+    ))
+  }
 </ul>
 
 <style lang="scss">
   .navbar-list {
     display: flex;
     list-style: none;
+  }
+
+  .column {
+    flex-direction: column;
   }
 </style>

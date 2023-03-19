@@ -2,12 +2,13 @@
 interface Props {
   padding: string
   size: string
+  active?: boolean
 }
 
-const { padding, size }: Props = Astro.props;
+const { padding, size, active }: Props = Astro.props;
 ---
 
-<div class="icon-container">
+<div class:list={[`icon-container`, { active }]}>
   <div>
     <slot />
   </div>
@@ -37,5 +38,10 @@ const { padding, size }: Props = Astro.props;
       color: $white;
       background-color: $primary-500;
     }
+  }
+
+  .active {
+    color: $white;
+    background-color: $primary-500;
   }
 </style>

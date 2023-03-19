@@ -9,7 +9,7 @@ interface Props {
 const { title, description }: Props = Astro.props;
 ---
 
-<div class="card" id="tools">
+<div class="icon-card-container" id="tools">
   <IconBlock padding="1.25rem" size="1.25rem">
     <slot name="icon" />
   </IconBlock>
@@ -22,7 +22,7 @@ const { title, description }: Props = Astro.props;
 <style lang="scss">
   @import '/src/styles/variables.scss';
   
-  .card {
+  .icon-card-container {
 		scroll-margin: 6rem;
     padding: 2rem;
     display: flex;
@@ -31,11 +31,6 @@ const { title, description }: Props = Astro.props;
     background-color: $white;
     border-radius: .75rem;
   }
-
-  /* .card:hover .icon-container {
-    color: $white;
-    background-color: $primary-500;
-  } */
 
   .text {
     width: 15.5rem;

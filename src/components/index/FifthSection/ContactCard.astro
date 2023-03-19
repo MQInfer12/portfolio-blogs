@@ -1,46 +1,47 @@
 ---
+import Link from "../../global/Link.astro";
 import SocialContainer from "../FirstSection/SocialContainer.astro";
 import ContactCardDescription from "./ContactCardDescription.astro";
-import ContactForm from "./ContactForm.astro";
 import DataCard from "./DataCard.astro";
-import ChangeActiveState from "./ChangeActiveState.jsx";
 ---
 
 <div class="content" id="contact">
   <div class="column left">
     <ContactCardDescription />
-    <div class="data-card-container">
-      <ChangeActiveState client:load>
-        <DataCard 
-          title="Address:"
-          slot="0"
-        >
-          <i class="fa-solid fa-location-dot" slot="icon"></i>
-          <address>Cochabamba, Pacata Alta</address>
-        </DataCard>
-        <DataCard 
-          title="My Email:"
-          slot="1"
-        >
-          <i class="fa-solid fa-location-dot" slot="icon"></i>
-          <address>maummq@gmail.com</address>
-        </DataCard>
-        <DataCard 
-          title="Call Me Now:"
-          slot="2"
-        >
-          <i class="fa-solid fa-location-dot" slot="icon"></i>
-          <address>(591) 76407344</address>
-        </DataCard>
-      </ChangeActiveState>
+    <div class="data-cards">
+      <DataCard title="Address:" active>
+        <i class="fa-solid fa-location-dot" slot="icon"></i>
+        <address>Cochabamba, Pacata Alta</address>
+      </DataCard>
+      <DataCard title="My Email:">
+        <i class="fa-solid fa-location-dot" slot="icon"></i>
+        <address>maummq@gmail.com</address>
+      </DataCard>
+      <DataCard title="Call Me Now:">
+        <i class="fa-solid fa-location-dot" slot="icon"></i>
+        <address>(591) 76407344</address>
+      </DataCard>
     </div>
-    <SocialContainer blank gap />
   </div>
   <div class="column right">
-    <p>There are many variations of passages of Lorem Ipsu available, but the majority have suffered alte.</p>
-    <ContactForm />
+    <p>
+      Click the button below and let's get started on building your online dream today. 
+    </p>
+    <Link text="Send me an email" to="mailto:maummq@gmail.com" primary>
+      <i class="fa-regular fa-envelope" slot="right"></i>
+    </Link>
+    <p>
+      Or contact me by my social media. 
+    </p>
+    <SocialContainer blank gap />
   </div>
 </div>
+
+<script>
+  import changeActive from "../../../utilities/changeActive";
+  const cards = document.querySelectorAll('.data-card-container');
+  changeActive(cards, 2000);
+</script>
 
 <style lang="scss">
   @import '/src/styles/variables.scss';
@@ -68,6 +69,7 @@ import ChangeActiveState from "./ChangeActiveState.jsx";
     width: 35rem;
     gap: 3rem;
     justify-content: center;
+    align-items: center;
 
     & > p {
       color: $gray-400;
@@ -76,7 +78,7 @@ import ChangeActiveState from "./ChangeActiveState.jsx";
     }
   }
 
-  .data-card-container {
+  .data-cards {
     display: flex;
     flex-direction: column;
     gap: .75rem;

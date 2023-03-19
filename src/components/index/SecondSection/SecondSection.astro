@@ -8,34 +8,40 @@ import IconCard from "./IconCard.astro";
   <div class="columns">
     <div class="row">
       <IconCard 
-        title="1. React"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu."
+        title="React"
+        description="A revolutionary way to build modern, fast and interactive web applications."
       >
         <i class="fa-brands fa-react" slot="icon"></i>
       </IconCard>
       <IconCard 
-        title="3. Git & Github"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu."
+        title="Git & Github"
+        description="A fascinating tool to collaborate and keep track of the projects."
       >
         <i class="fa-brands fa-github" slot="icon"></i>
       </IconCard>
     </div>
     <div class="row">
       <IconCard 
-        title="2. Javascript & Typescript"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu."
+        title="Javascript & Typescript"
+        description="These technologies are used to maximize the potential of your application."
       >
         <i class="fa-brands fa-square-js" slot="icon"></i>
       </IconCard>
       <IconCard 
-        title="4. HTML & Sass"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu."
+        title="HTML & Sass"
+        description="This technology duo provide the perfect foundation for your creative vision."
       >
       <i class="fa-brands fa-sass" slot="icon"></i>
       </IconCard>
     </div>
   </div>
 </section>
+
+<script>
+  import changeActive from "../../../utilities/changeActive";
+  const icons = document.querySelectorAll('.icon-card-container .icon-container');
+  changeActive(icons, 3000);
+</script>
 
 <style lang="scss">
   @import '/src/styles/variables.scss';

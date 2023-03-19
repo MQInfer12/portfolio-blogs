@@ -1,6 +1,17 @@
 ---
 import Links from "../Navbar/Links.astro";
 import Logo from "../Navbar/Logo.astro";
+
+const certificationLinks = [{
+  text: "Unifranz - Backend Developer",
+  to: "https://drive.google.com/file/d/1w9XJ7wO0zQIseMCxMbLSblcL9LdbKV_B/view?usp=sharing"
+}, {
+  text: "Unifranz - Hack24 Culture Against Violence",
+  to: "https://drive.google.com/file/d/1MfZPwzkXUPZBJIU-7b1ngdwONvyN_RYz/view?usp=sharing"
+}, {
+  text: "AssureSoft - 1st Programming Championship",
+  to: "https://drive.google.com/file/d/1Gw2dOLtHkVo5uBc2uWMiF3vwjEUhbgYb/view?usp=sharing"
+}]
 ---
 
 <footer>
@@ -9,12 +20,19 @@ import Logo from "../Navbar/Logo.astro";
     <Links gray />
     <p><em>Copyright 2023 Mauricio Molina &copy;</em></p>
   </div>
+  <div class="column">
+    <h4>Certifications</h4>
+    <Links gray column links={certificationLinks}/>
+  </div>
 </footer>
 
 <style lang="scss">
   @import '/src/styles/variables.scss';
   
   footer {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
     background-color: $gray-800;
     padding: 4rem 0;
 
@@ -27,6 +45,18 @@ import Logo from "../Navbar/Logo.astro";
     em {
       font-style: normal;
       color: $gray-50;
+    }
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+
+    & > h4 {
+      font-size: 1.25rem;
+      color: $white;
+      text-align: center;
     }
   }
 </style>

@@ -5,18 +5,19 @@ interface Props {
   type: InputType
   name: string
   placeholder: string
+  identifier?: string
   required?: boolean
 }
 
-const { placeholder, type, name, required } = Astro.props;
+const { placeholder, type, name, identifier, required } = Astro.props;
 ---
 
 <input 
+  class={identifier}
   type={`${type}`}
   name={name}
   placeholder={placeholder} 
   required={required}
-  value=""
 />
 
 <style lang="scss">
