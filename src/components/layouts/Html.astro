@@ -1,5 +1,6 @@
 ---
 import Footer from './Footer/Footer.astro';
+import Cursor from './Misc/Cursor.astro';
 import Navbar from './Navbar/Navbar.astro';
 
 interface Props {
@@ -20,6 +21,7 @@ const { title }: Props = Astro.props;
 		<title>{ title } - Mauricio Molina</title>
 	</head>
 	<body>
+		<Cursor />
 		<Navbar />
 		<main>
       <slot />
@@ -36,6 +38,7 @@ const { title }: Props = Astro.props;
 		padding: 0;
 		box-sizing: border-box;
 		font-family: 'Work Sans';
+		cursor: none;
 	}
 
 	html {

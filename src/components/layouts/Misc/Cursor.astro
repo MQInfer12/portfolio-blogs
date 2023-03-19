@@ -1,0 +1,81 @@
+---
+const circleSize = 24;
+---
+
+<div class="flame-cursor">
+  <div class="cursor-circle"></div>
+  <div class="cursor-circle"></div>
+  <div class="cursor-circle"></div>
+  <div class="cursor-circle"></div>
+  <div class="cursor-circle"></div>
+  <div class="cursor-circle"></div>
+  <div class="cursor-circle"></div>
+  <div class="cursor-circle"></div>
+  <div class="cursor-circle"></div>
+  <div class="cursor-circle"></div>
+  <div class="cursor-circle"></div>
+  <div class="cursor-circle"></div>
+  <div class="cursor-circle"></div>
+  <div class="cursor-circle"></div>
+  <div class="cursor-circle"></div>
+</div>
+
+<style lang="scss" define:vars={{ circleSize: circleSize + "px" }}>
+  @import '/src/styles/variables.scss';
+  
+  body:hover .cursor-circle {
+    opacity: 1;
+  }
+
+  .cursor-circle {
+    backdrop-filter: blur(2);
+    height: var(--circleSize);
+    width: var(--circleSize);
+    border-radius: 50%;
+    background-color: $primary-500-transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .3s;
+  }
+</style>
+
+<script type="text/javascript" define:vars={{ circleSize }}>
+  const coords = { x: 0, y: 0 };
+  const circles = document.querySelectorAll(".cursor-circle");
+
+  circles.forEach(circle => {
+    circle.x = 0;
+    circle.y = 0;
+  })
+
+  window.addEventListener("mousemove", (e) => {
+    coords.x = e.clientX;
+    coords.y = e.clientY;
+  })
+
+  function animateCircles() {
+    let { x, y } = coords;
+
+    circles.forEach((circle, index) => {
+      circle.style.left = x - (circleSize / 2) + "px";
+      circle.style.top = y - (circleSize / 2) + "px";
+
+      circle.style.scale = (circles.length - index) / circles.length;
+
+      circle.x = x;
+      circle.y = y;
+
+      const nextCircle = circles[index + 1] || circles[0];
+      x += (nextCircle.x - x) * 0.3;
+      y += (nextCircle.y - y) * 0.3;
+    })
+
+    requestAnimationFrame(animateCircles);
+  }
+
+  animateCircles();
+</script>
