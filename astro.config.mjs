@@ -5,5 +5,8 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   integrations: [react()],
-  site: 'https://MQInfer12.github.io'
+  site: 'https://github.com/MQInfer12/portfolio-blogs',
+  build: {
+    assets: '_astro',
+  }
 });
