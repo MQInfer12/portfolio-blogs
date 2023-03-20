@@ -11,7 +11,7 @@
     "prefix": "scss",
     "body": [
       "<style lang=\"scss\">",
-      "\t@import '/src/styles/variables.scss';",
+      "\t@import '/src/styles/variables';",
       "\t$0",
       "</style>"
     ],

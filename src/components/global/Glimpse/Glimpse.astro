@@ -12,7 +12,7 @@ const { top, left, primary, secondary }: Props = Astro.props;
 <div class:list={['glimpse', { primary: primary, secondary: secondary }]}></div>
 
 <style lang="scss" define:vars={{ top, left }}>
-  @import '/src/styles/variables.scss';
+  @import '/src/styles/variables';
 
   .glimpse {
     position: absolute;
