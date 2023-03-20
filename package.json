@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "portfolio-blog",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -17,8 +17,5 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.59.2"
-  },
-  "devDependencies": {
-    "gh-pages": "^5.0.0"
   }
 }
