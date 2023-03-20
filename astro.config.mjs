@@ -6,5 +6,5 @@ import react from "@astrojs/react";
 export default defineConfig({
   integrations: [react()],
   site: 'https://MQInfer12.github.io',
-  base: '/portfolio',
+  base: '/',  
 });
