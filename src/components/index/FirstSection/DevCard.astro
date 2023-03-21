@@ -1,5 +1,4 @@
 ---
-import Picture from "../../global/Picture.astro";
 import ProfilePic from "../../../assets/images/index/profile2.png";
 import SocialContainer from "./SocialContainer.astro";
 import DevCardDescription from "./DevCardDescription.astro";
@@ -7,7 +6,7 @@ import DevCardDescription from "./DevCardDescription.astro";
 
 <div class="dev-card" id="about">
   <div class="dev-card-positioner">
-    <Picture src={ProfilePic} alt="Mauricio-img-card" height="31.5rem" width="26.5rem" />
+    <img src={ProfilePic} alt="Mauricio-img-card" />
     <div class="absolute">
       <SocialContainer blank white padding shadow />
     </div>
@@ -19,11 +18,13 @@ import DevCardDescription from "./DevCardDescription.astro";
   @import '/src/styles/variables';
   
   .dev-card {
+    width: 100%;
+    max-width: 85rem;
 		scroll-margin: 3.5rem;
+    gap: 2rem;
     display: flex;
-    gap: 11rem;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     padding: 7rem;
     position: absolute;
     bottom: -30%;
@@ -32,10 +33,30 @@ import DevCardDescription from "./DevCardDescription.astro";
     background-color: $white;
     border-radius: 1.5rem;
     box-shadow: $box-shadow-200;
+
+    @media screen and (max-width: 1290px) {
+      padding: 4rem;
+    }
+
+    @media screen and (max-width: 1130px) {
+      position: static;
+      transform: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
   }
 
   .dev-card-positioner {
     position: relative;
+
+    & > img {
+      height: 31.5rem;
+      width: 26.5rem;
+      max-width: 33.5rem;
+      min-width: 25rem;
+      border-radius: 1.5rem;
+      object-fit: cover;
+    }
 
     & > .absolute {
       position: absolute;

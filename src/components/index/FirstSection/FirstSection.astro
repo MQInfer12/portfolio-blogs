@@ -2,7 +2,6 @@
 import Description from "./Description.astro";
 import Stats from "./Stats.astro";
 import ProfilePic from "../../../assets/images/index/profile.png";
-import Picture from "../../global/Picture.astro";
 import DevCard from "./DevCard.astro";
 import GlimpseContainer from "../../global/Glimpse/GlimpseContainer.astro";
 import Glimpse from "../../global/Glimpse/Glimpse.astro";
@@ -14,7 +13,10 @@ import Glimpse from "../../global/Glimpse/Glimpse.astro";
       <Description />
       <Stats />
     </div>
-    <Picture src={ProfilePic} alt="Mauricio-photo" height="39.75rem" width="33.5rem" />
+    <img 
+      src={ProfilePic} 
+      alt="Mauricio-photo" 
+    />
   </div>
   <DevCard />
   <GlimpseContainer>
@@ -28,18 +30,41 @@ import Glimpse from "../../global/Glimpse/Glimpse.astro";
   @import '/src/styles/variables';
 
   .first-section {
-    height: calc(180dvh - $navbar-height);
+    min-height: calc(180dvh - $navbar-height);
     position: relative;
     isolation: isolate;
   }
 
   .first-section-info {
-    height: calc(100dvh - $navbar-height);
+    min-height: calc(100dvh - $navbar-height);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8.5rem;
     scroll-margin: 0;
+    padding: 2rem;
+
+    & > img {
+      height: 39.75rem;
+      width: 33.5rem;
+      max-width: 33.5rem;
+      min-width: 25rem;
+      border-radius: 1.5rem;
+      object-fit: cover;
+    }
+
+    @media screen and (max-width: 1130px) {
+      max-height: unset;
+      flex-direction: column-reverse;
+      gap: 3rem;
+
+      & > img {
+        height: 20rem;
+        width: 30rem;
+        max-width: 100%;
+        min-width: unset;
+      }
+    }
   }
 
   .first-section-left {
@@ -48,5 +73,13 @@ import Glimpse from "../../global/Glimpse/Glimpse.astro";
     flex-direction: column;
     justify-content: flex-end;
     gap: 8.875rem;
+
+    @media screen and (max-width: 1290px) {
+      gap: 3rem;
+    }
+
+    @media screen and (max-width: 1130px) {
+      height: auto;
+    }
   }
 </style>

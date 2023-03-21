@@ -40,13 +40,10 @@ const { title, description }: Props = Astro.props;
   }
 
   h3 {
-    color: $gray-900;
-    font-size: 1.25rem;
-    font-weight: 600;
+    @include heading-5;
   }
 
   p {
-    color: $gray-600;
-    line-height: 1.5rem;
+    @include body-2;
   }
 </style>

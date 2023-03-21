@@ -37,9 +37,8 @@ const { title, active }: Props = Astro.props;
     }
 
     *:last-child {
-      font-style: normal;
+      @include body-2;
       font-weight: 500;
-      font-size: 1rem;
       color: $gray-900;
     }
   }
@@ -50,7 +49,7 @@ const { title, active }: Props = Astro.props;
   }
 
   p {
-    font-size: .875rem;
+    @include body-3;
     color: $gray-700;
   }
 </style>

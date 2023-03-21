@@ -49,3 +49,131 @@ $navbar-height: 6rem;
     background: $primary-500;
   }
 }
+
+@mixin display {
+  $size: 4.5rem;
+  font-weight: 600;
+  font-size: $size;
+  color: $gray-900;
+
+  @media screen and (max-width: 1130px) {
+    $size: 3rem;
+    font-weight: 600;
+    font-size: $size;
+    line-height: $size * 1.17;
+    color: $gray-900;
+  }
+}
+
+@mixin heading-1 {
+  $size: 3rem;
+  font-weight: 600;
+  font-size: $size;
+  line-height: $size * 1.17;
+  color: $gray-900;
+
+  @media screen and (max-width: 1130px) {
+    $size: 2.375rem;
+    font-weight: 600;
+    font-size: $size;
+    line-height: $size * 1.30;
+  }
+}
+
+@mixin heading-2 {
+  $size: 2.375rem;
+  font-weight: 600;
+  font-size: $size;
+  line-height: $size * 1.30;
+  color: $gray-900;
+
+  @media screen and (max-width: 1130px) {
+    $size: 2rem;
+    font-weight: 600;
+    font-size: $size;
+    line-height: $size * 1.25;
+  }
+}
+
+@mixin heading-3 {
+  $size: 2rem;
+  font-weight: 600;
+  font-size: $size;
+  line-height: $size * 1.25;
+  color: $gray-900;
+
+  @media screen and (max-width: 1130px) {
+    $size: 1.5rem;
+    font-weight: 600;
+    font-size: $size;
+    line-height: $size * 1.25;
+  }
+}
+
+@mixin heading-4 {
+  $size: 1.5rem;
+  font-weight: 600;
+  font-size: $size;
+  line-height: $size * 1.25;
+  color: $gray-900;
+
+  @media screen and (max-width: 1130px) {
+    $size: 1.25rem;
+    font-weight: 600;
+    font-size: $size;
+    line-height: $size * 1.2;
+  }
+}
+
+@mixin heading-5 {
+  $size: 1.25rem;
+  font-weight: 600;
+  font-size: $size;
+  line-height: $size * 1.2;
+}
+
+@mixin body-1 {
+  $size: 1.125rem;
+  font-size: $size;
+  line-height: $size * 1.33;
+  color: $gray-500;
+  
+  @media screen and (max-width: 1130px) {
+    $size: 1rem;
+    font-size: $size;
+    line-height: $size * 1.5;
+  }
+}
+
+@mixin body-2 {
+  $size: 1rem;
+  font-size: $size;
+  line-height: $size * 1.5;
+  color: $gray-500;
+  
+  @media screen and (max-width: 1130px) {
+    $size: .875rem;
+    font-size: $size;
+    line-height: $size * 1.43;
+  }
+}
+
+@mixin body-3 {
+  $size: .875rem;
+  font-size: $size;
+  line-height: $size * 1.43;
+  color: $gray-500;
+  
+  @media screen and (max-width: 1130px) {
+    $size: .75rem;
+    font-size: $size;
+    line-height: $size * 1.33;
+  }
+}
+
+@mixin body-4 {
+  $size: .75rem;
+  font-size: $size;
+  line-height: $size * 1.33;
+  color: $gray-500;
+}

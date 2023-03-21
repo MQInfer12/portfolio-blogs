@@ -24,14 +24,14 @@ const { stadistic, text }: Props = Astro.props;
     gap: .5rem;
     align-items: center;
     justify-content: center;
+    padding: .5rem;
 
     & b {
-      font-size: 2rem;
+      @include heading-3;
       color: $gray-700;
-      font-weight: 600;
     }
     & p {
-      color: $gray-500;
+      @include body-2;
     }
   }
 </style>

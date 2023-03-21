@@ -18,16 +18,15 @@ import ExpandableSection from "../ExpandableSection.astro";
   @import '/src/styles/variables';
   
   h2 {
+    @include heading-1;
     color: $white;
-    font-size: 3rem;
     width: 38.75rem;
     text-align: center;
   }
 
   p {
+    @include body-1;
     width: 36rem;
-    font-size: 1.125rem;
-    line-height: 1.5rem;
     color: $gray-300;
     text-align: center;
   }

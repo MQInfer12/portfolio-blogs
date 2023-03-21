@@ -48,23 +48,20 @@ const { category, description, src, title, to, blank }: Props = Astro.props;
       padding: 2rem;
 
       & > small {
-        color: $gray-400;
-        font-size: .75rem;
-        font-weight: 500;
+        @include body-4;
         text-transform: uppercase;
       }
       & > h3 {
+        @include body-1;
         color: $gray-900;
-        font-size: 1.125rem;
         font-weight: 600;
         margin-bottom: .75rem;
         margin-top: .25rem;
       }
       & > p {
+        @include body-3;
         color: $gray-600;
-        font-size: .875rem;
         margin-bottom: 1.25rem;
-        line-height: 1.25rem;
       }
     }
   }
