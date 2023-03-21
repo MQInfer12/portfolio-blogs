@@ -1,15 +1,27 @@
 ---
 import Links from "./Links.astro";
 import Logo from "./Logo.astro";
+import Hamburguer from "./Hamburguer/Hamburguer.jsx";
 ---
 
-<nav class="navbar">
-  <Logo />
-  <Links contactPrimary />
+<nav>
+  <div class="navbar">
+    <Logo />
+    <div class="links">
+      <Links contactPrimary />
+    </div>
+    <Hamburguer client:load>
+      <Links contactPrimary column slot="links" />
+    </Hamburguer>
+  </div>
 </nav>
 
 <style lang="scss">
   @import '/src/styles/variables';
+
+  nav {
+    position: relative;
+  }
 
   .navbar {
     position: fixed;
@@ -21,5 +33,16 @@ import Logo from "./Logo.astro";
     align-items: center;
     z-index: 5;
     background-color: $white;
+
+    @media screen and (max-width: 960px) {
+      padding: 0 2rem;
+      justify-content: space-between;
+    }
+  }
+
+  .links {
+    @media screen and (max-width: 960px) {
+      display: none;
+    }
   }
 </style>

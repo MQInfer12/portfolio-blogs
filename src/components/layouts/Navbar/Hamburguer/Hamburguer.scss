@@ -1,0 +1,48 @@
+@import '/src/styles/variables';
+  
+.hamburguer {
+  display: none;
+
+  & > label {
+    font-size: 1.5rem;
+    color: $gray-900;
+    padding: .5rem;
+    transition: all 0.3s;
+  }
+
+  & > .navbar-positioner {
+    display: none;
+    padding: 2rem;
+    background-color: $white-transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    animation: appear 0.3s ease;
+  
+    @keyframes appear {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+
+  & > input {
+    display: none;
+
+    &:checked {
+      & + label {
+        transform: translateX(-10rem);
+        & + .navbar-positioner {
+          display: block;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    display: block;
+  }
+}

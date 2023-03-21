@@ -36,33 +36,44 @@ import DevCardDescription from "./DevCardDescription.astro";
 
     @media screen and (max-width: 1290px) {
       padding: 4rem;
+      justify-content: center;
     }
 
-    @media screen and (max-width: 1130px) {
+    @media screen and (max-width: 1130px), (max-height: 830px) {
       position: static;
       transform: none;
       border-radius: 0;
       box-shadow: none;
+      max-width: unset;
+    }
+
+    @media screen and (max-width: 960px) {
+      flex-direction: column;
+      gap: 4rem;
+      padding: 2rem;
     }
   }
 
   .dev-card-positioner {
     position: relative;
 
-    & > img {
-      height: 31.5rem;
-      width: 26.5rem;
-      max-width: 33.5rem;
-      min-width: 25rem;
-      border-radius: 1.5rem;
-      object-fit: cover;
-    }
-
     & > .absolute {
       position: absolute;
       top: 100%;
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
+    }
+  }
+
+  img {
+    height: 31.5rem;
+    width: 26.5rem;
+    border-radius: 1.5rem;
+    object-fit: cover;
+
+    @media screen and (max-width: 960px) {
+      height: 20rem;
+      width: 20rem;
     }
   }
 </style>

@@ -28,9 +28,7 @@ const { white }: Props = Astro.props;
       object-fit: cover;
     }
     & > h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      color: $gray-900;
+      @include heading-3;
     }
   }
 
