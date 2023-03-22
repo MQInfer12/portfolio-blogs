@@ -8,13 +8,14 @@ interface Props {
   white?: boolean
   gray?: boolean
   disabled?: boolean
+  little?: boolean
 }
 
-const { text, to, primary, white, blank, download, gray, disabled }: Props = Astro.props;
+const { text, to, primary, white, blank, download, gray, disabled, little }: Props = Astro.props;
 ---
 
 <a 
-  class:list={['button', { "primary-button": primary, "white-button": white, gray, disabled }]} 
+  class:list={['button', { "primary-button": primary, "white-button": white, gray, disabled, little }]} 
   href={to} 
   target={blank ? "_blank" : "_self"}
   download={download}
@@ -97,5 +98,9 @@ const { text, to, primary, white, blank, download, gray, disabled }: Props = Ast
     &::after {
       border-bottom: 1px solid $gray-50;
     }
+  }
+
+  .little {
+    font-size: .75rem;
   }
 </style>

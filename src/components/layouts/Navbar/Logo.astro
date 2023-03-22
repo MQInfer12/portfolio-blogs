@@ -29,6 +29,10 @@ const { white }: Props = Astro.props;
     }
     & > h1 {
       @include heading-3;
+
+      @media screen and (max-width: 500px) {
+        display: none;
+      }
     }
   }
 

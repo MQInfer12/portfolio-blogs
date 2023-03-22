@@ -3,61 +3,83 @@ import Description from "./Description.astro";
 import IconCard from "./IconCard.astro";
 ---
 
-<section class="second-section">
-  <Description />
-  <div class="columns">
-    <div class="row">
-      <IconCard 
-        title="React"
-        description="A revolutionary way to build modern, fast and interactive web applications."
-      >
-        <i class="fa-brands fa-react" slot="icon"></i>
-      </IconCard>
-      <IconCard 
-        title="Git & Github"
-        description="A fascinating tool to collaborate and keep track of the projects."
-      >
-        <i class="fa-brands fa-github" slot="icon"></i>
-      </IconCard>
+<section class="second-section" id="tools">
+  <Description >
+    <div class="columns">
+      <div class="row">
+        <IconCard 
+          title="React"
+          description="A revolutionary way to build modern, fast and interactive web applications."
+        >
+          <i class="fa-brands fa-react" slot="icon"></i>
+        </IconCard>
+        <IconCard 
+          title="Git & Github"
+          description="A fascinating tool to collaborate and keep track of the projects."
+        >
+          <i class="fa-brands fa-github" slot="icon"></i>
+        </IconCard>
+      </div>
+      <div class="row">
+        <IconCard 
+          title="Javascript & Typescript"
+          description="These technologies are used to maximize the potential of your application."
+        >
+          <i class="fa-brands fa-square-js" slot="icon"></i>
+        </IconCard>
+        <IconCard 
+          title="HTML & Sass"
+          description="This technology duo provide the perfect foundation for your creative vision."
+        >
+        <i class="fa-brands fa-sass" slot="icon"></i>
+        </IconCard>
+      </div>
     </div>
-    <div class="row">
-      <IconCard 
-        title="Javascript & Typescript"
-        description="These technologies are used to maximize the potential of your application."
-      >
-        <i class="fa-brands fa-square-js" slot="icon"></i>
-      </IconCard>
-      <IconCard 
-        title="HTML & Sass"
-        description="This technology duo provide the perfect foundation for your creative vision."
-      >
-      <i class="fa-brands fa-sass" slot="icon"></i>
-      </IconCard>
-    </div>
-  </div>
+  </Description>
 </section>
 
 <script>
   import changeActive from "../../../utilities/changeActive";
   const icons = document.querySelectorAll('.icon-card-container .icon-container');
-  changeActive(icons, 3000);
+  changeActive(icons, 2500);
 </script>
 
 <style lang="scss">
   @import '/src/styles/variables';
   
   .second-section {
-    height: calc(120dvh - $navbar-height);
+		scroll-margin: -7rem;
+    min-height: calc(120dvh - $navbar-height);
     background-color: $gray-50;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 9rem;
+    padding: 2rem;
+
+    @media screen and (max-height: 770px) {
+		  scroll-margin: -4rem;
+    }
+
+    @media screen and (max-width: 1200px) {
+      gap: 4rem;
+    }
+
+    @media screen and (max-width: 1050px) {
+      flex-direction: column;
+      gap: 0;
+		  scroll-margin: 0;
+    }
   }
 
   .columns {
     display: flex;
     gap: 1.5rem;
+
+    @media screen and (max-width: 1050px) {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
   }
 
   .row {
@@ -70,6 +92,15 @@ import IconCard from "./IconCard.astro";
     }
     &:last-child {
       margin-top: 1.5rem;
+    }
+
+    @media screen and (max-width: 1050px) {
+      &:first-child {
+        margin-bottom: 0;
+      }
+      &:last-child {
+        margin-top: 0;
+      }
     }
   }
 </style>

@@ -3,13 +3,19 @@
 
 <div class="container">
   <h2>Tools & Technologies</h2>
-  <div>
+  <div class="little">
+    <slot />
+  </div>
+  <div class="text">
     <p>
       When it comes to developing web applications, I am committed to following best practices and implementing clean and efficient code.
       I believe that modularity and reusability are essential principles in every development, and I strive to write code that is easy to maintain and extend over time.
     </p>
     <p>I am constantly learning and exploring new technologies to leverage their capabilities to create innovative and engaging user experiences.</p>
   </div>
+</div>
+<div class="big">
+  <slot />
 </div>
 
 <style lang="scss">
@@ -20,19 +26,42 @@
     flex-direction: column;
     gap: 1.5rem;
     width: 33rem;
+    max-width: 100%;
 
-    & > div {
+    & > .text {
       display: flex;
       flex-direction: column;
       gap: 1rem;
+    }
+    
+    @media screen and (max-width: 1050px) {
+      width: 100%;
     }
   }
 
   h2 {
     @include heading-1;
+
+    @media screen and (max-width: 1050px) {
+      text-align: center;
+    }
   }
 
   p {
     @include body-1;
+  }
+
+  .big {
+    @media screen and (max-width: 1050px) {
+      display: none;
+    }
+  }
+
+  .little {
+    display: none;
+
+    @media screen and (max-width: 1050px) {
+      display: block;
+    }
   }
 </style>

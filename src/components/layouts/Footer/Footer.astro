@@ -1,6 +1,7 @@
 ---
 import Links from "../Navbar/Links.astro";
 import Logo from "../Navbar/Logo.astro";
+import Copyright from "./Copyright.astro";
 
 const certificationLinks = [{
   text: "Unifranz - Backend Developer",
@@ -17,13 +18,13 @@ const certificationLinks = [{
 <footer>
   <div>
     <Logo white />
-    <Links gray />
-    <p><em>Copyright 2023 Mauricio Molina &copy;</em></p>
+    <Links gray wrap />
   </div>
   <div class="column">
     <h4>Certifications</h4>
-    <Links gray column links={certificationLinks}/>
+    <Links little gray column links={certificationLinks} />
   </div>
+  <Copyright />
 </footer>
 
 <style lang="scss">
@@ -38,13 +39,10 @@ const certificationLinks = [{
 
     & > div {
       display: flex;
+      gap: 2rem;
       justify-content: space-evenly;
       align-items: center;
-    }
-
-    em {
-      font-style: normal;
-      color: $gray-50;
+      flex-wrap: wrap;
     }
   }
 

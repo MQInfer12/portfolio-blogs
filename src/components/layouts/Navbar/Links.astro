@@ -10,8 +10,10 @@ interface GoTo {
 interface Props {
   links?: GoTo[]
   contactPrimary?: boolean
-  gray?: boolean,
+  gray?: boolean
   column?: boolean
+  wrap?: boolean
+  little?: boolean
 }
 
 const { 
@@ -34,15 +36,17 @@ const {
     primary: contactPrimary
   }], 
   gray,
-  column
+  column,
+  wrap,
+  little
 }: Props = Astro.props;
 ---
 
-<ul class:list={["navbar-list", { column }]}>
+<ul class:list={["navbar-list", { column, wrap }]}>
   {
     links.map((v, i) => (
       <li>
-        <Link text={v.text} to={v.to} primary={v.primary} gray={gray} />  
+        <Link text={v.text} to={v.to} primary={v.primary} gray={gray} little={little} />  
       </li>
     ))
   }
@@ -56,5 +60,11 @@ const {
 
   .column {
     flex-direction: column;
+    align-items: center;
+  }
+
+  .wrap {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 </style>
