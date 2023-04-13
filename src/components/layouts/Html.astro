@@ -2,6 +2,7 @@
 import Footer from './Footer/Footer.astro';
 import Cursor from './Misc/Cursor.astro';
 import Navbar from './Navbar/Navbar.astro';
+import Logo from '../../assets/images/logo.png';
 
 interface Props {
   title: string
@@ -13,7 +14,7 @@ const { title }: Props = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/logo.png" />
+		<link rel="icon" type="image/svg+xml" href={Logo} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">

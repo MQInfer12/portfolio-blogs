@@ -1,9 +1,10 @@
 ---
 import Link from "../../global/Link.astro";
+import CV from "../../../assets/documents/curriculum_vitae.pdf";
 ---
 
 <div>
-  <Link to="/curriculum_vitae.pdf" download text="Download CV" white >
+  <Link to={CV} download text="Download CV" white >
     <i class="fa-solid fa-download" slot="left"></i>
   </Link>
 </div>
