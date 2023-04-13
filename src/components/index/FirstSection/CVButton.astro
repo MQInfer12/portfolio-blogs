@@ -1,0 +1,18 @@
+---
+import Link from "../../global/Link.astro";
+---
+
+<div>
+  <Link to="/curriculum_vitae.pdf" download text="Download CV" white >
+    <i class="fa-solid fa-download" slot="left"></i>
+  </Link>
+</div>
+
+<style lang="scss">
+  @import '/src/styles/variables';
+  
+  div {
+    display: flex;
+    gap: 1.5rem;
+  }
+</style>
