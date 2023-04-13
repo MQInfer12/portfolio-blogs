@@ -8,9 +8,10 @@ interface Props {
   description: string
   to: string;
   blank?: boolean;
+  repositorie?: string;
 }
 
-const { category, description, src, title, to, blank }: Props = Astro.props;
+const { category, description, src, title, to, blank, repositorie }: Props = Astro.props;
 ---
 
 <div class="card">
@@ -22,6 +23,9 @@ const { category, description, src, title, to, blank }: Props = Astro.props;
     <div>
       <Link text="Visit" to={to} white blank={blank} >
         <i class="fa-solid fa-arrow-right" slot="right"></i>
+      </Link>
+      <Link text="" to={repositorie || ""} disabled={!repositorie} primary blank>
+        <i class="fa-solid fa-code" slot="right"></i>
       </Link>
     </div>
   </div>
@@ -62,6 +66,10 @@ const { category, description, src, title, to, blank }: Props = Astro.props;
         @include body-3;
         color: $gray-600;
         margin-bottom: 1.25rem;
+      }
+      & > div {
+        display: flex;
+        gap: 1rem;
       }
     }
   }

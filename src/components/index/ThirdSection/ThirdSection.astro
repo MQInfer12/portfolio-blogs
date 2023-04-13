@@ -6,6 +6,7 @@ import Description from "./Description.astro";
 import ImageCard from "./ImageCard.astro";
 import PsicotestLanding from "/src/assets/images/index/psicotest_landing.png";
 import TourismLanding from "/src/assets/images/index/tourism_landing.png";
+import LZLanding from "/src/assets/images/index/lz_landing.png";
 ---
 
 <ExpandableSection>
@@ -15,19 +16,30 @@ import TourismLanding from "/src/assets/images/index/tourism_landing.png";
     maxPerRow={3} 
   >
     <ImageCard
-      category="React - Laravel"
+      category="React JS - Laravel"
       title="Psicotest"
-      description="A web application of customizable psychological tests that can be easily shared with QR or direct link, it also includes a calendar for appointments and a chat to solve doubts."
+      description="A web application of customizable psychological tests that can be easily shared with QR or direct link, it also includes a calendar for appointments and a realtime chat to solve doubts."
       src={PsicotestLanding}
       to="https://psicotest-production.web.app/#/"
+      repositorie="https://github.com/MQInfer12/psicotest"
       blank
     />
     <ImageCard
-      category="Angular - React - Laravel"
+      category="Angular - React JS - Laravel"
       title="Tourism Cochabamba"
-      description="A tourism application developed jointly with the Cochabamba mayor's office to show attractions and events in the city in detail and in 360º, it also has an administrator page to modify data."
+      description="A tourism application developed for the Cochabamba/Bolivia mayor's office to show attractions and events in the city in detail and in 360º, it has an administrator page to modify data."
       src={TourismLanding}
-      to="https://cochabamba-turismo.web.app/#/" 
+      to="https://cochabamba-turismo.web.app/#/"
+      blank
+    />
+    <!-- repositorie="https://github.com/CJJOM/CIDTEC_PROY_ALCALDIA-v1-" -->
+    <ImageCard
+      category="React TS - Express TS"
+      title="LZ Shopping"
+      description="A web application for a clothing store in Bolivia, in wich you can search, filter and reserve products by your CI number, includes an administrator page for modify data and confirm reserves."
+      src={LZLanding}
+      to="https://lz-shopping.web.app/#/" 
+      repositorie="https://github.com/MQInfer12/lz-shopping"
       blank
     />
   </CardGrid>
