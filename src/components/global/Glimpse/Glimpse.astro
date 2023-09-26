@@ -2,16 +2,17 @@
 interface Props {
   top: string
   left: string
+  delay: string
   primary?: boolean
   secondary?: boolean
 }
 
-const { top, left, primary, secondary }: Props = Astro.props;
+const { top, left, primary, secondary, delay }: Props = Astro.props;
 ---
 
 <div class:list={['glimpse', { primary: primary, secondary: secondary }]}></div>
 
-<style lang="scss" define:vars={{ top, left }}>
+<style lang="scss" define:vars={{ top, left, delay }}>
   @import '/src/styles/variables';
 
   .glimpse {
@@ -22,7 +23,9 @@ const { top, left, primary, secondary }: Props = Astro.props;
     filter: blur(300px);
     top: var(--top);
     left: var(--left);
-    opacity: 0.6;
+    opacity: 0.4;
+    animation: move 6s ease infinite;
+    animation-delay: var(--delay);
   }
   
   .primary {
@@ -31,5 +34,17 @@ const { top, left, primary, secondary }: Props = Astro.props;
 
   .secondary {
     background: $secondary-100;
+  }
+
+  @keyframes move {
+    0% {
+      transform: translateY(-400px);
+    }
+    50% {
+      transform: translateY(400px);
+    }
+    100% {
+      transform: translateY(-400px);
+    }
   }
 </style>

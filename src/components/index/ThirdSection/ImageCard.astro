@@ -7,11 +7,12 @@ interface Props {
   title: string
   description: string
   to: string;
+  googlePlay?: string;
   blank?: boolean;
   repositorie?: string;
 }
 
-const { category, description, src, title, to, blank, repositorie }: Props = Astro.props;
+const { category, description, src, title, to, blank, repositorie, googlePlay }: Props = Astro.props;
 ---
 
 <div class="card">
@@ -24,6 +25,12 @@ const { category, description, src, title, to, blank, repositorie }: Props = Ast
       <Link text="Visit" to={to} white blank={blank} >
         <i class="fa-solid fa-arrow-right" slot="right"></i>
       </Link>
+      {
+        googlePlay &&
+        <Link text="" to={googlePlay} white blank={blank} >
+          <i class="fa-brands fa-google-play" slot="right"></i>
+        </Link>
+      }
       <Link text="" to={repositorie || ""} disabled={!repositorie} primary blank>
         <i class="fa-solid fa-code" slot="right"></i>
       </Link>

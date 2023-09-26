@@ -7,6 +7,8 @@ import ImageCard from "./ImageCard.astro";
 import PsicotestLanding from "/src/assets/images/index/psicotest_landing.png";
 import TourismLanding from "/src/assets/images/index/tourism_landing.png";
 import LZLanding from "/src/assets/images/index/lz_landing.png";
+import TomattoLanding from '/src/assets/images/index/tomatto_landing.png';
+import CubiertoApp from '/src/assets/images/index/cubierto_app.png';
 ---
 
 <ExpandableSection>
@@ -20,7 +22,7 @@ import LZLanding from "/src/assets/images/index/lz_landing.png";
       title="Psicotest"
       description="A web application of customizable psychological tests that can be easily shared with QR or direct link, it also includes a calendar for appointments and a realtime chat to solve doubts."
       src={PsicotestLanding}
-      to="https://psicotest-production.web.app/#/"
+      to="https://psicotest.cidtec-uc.com/#/"
       repositorie="https://github.com/MQInfer12/psicotest"
       blank
     />
@@ -40,6 +42,24 @@ import LZLanding from "/src/assets/images/index/lz_landing.png";
       src={LZLanding}
       to="https://lz-shopping.web.app/#/" 
       repositorie="https://github.com/MQInfer12/lz-shopping"
+      blank
+    />
+    <ImageCard
+      category="React JS - Flask"
+      title="Doctor Tomatto"
+      description="An artificial intelligence web application that detects tomato leaf diseases and shows infected areas on a map, is a very useful tool for interested growers."
+      src={TomattoLanding}
+      to="http://marcianoquantico.pythonanywhere.com/"
+      blank
+    />
+    <ImageCard
+      category="React Native TS - React TS - Express TS"
+      title="Cubierto"
+      description="A hybrid bidding application for the city of Cochabamba designed to avoid food waste in collaboration with the city's restaurants, suppliers and charities."
+      src={CubiertoApp}
+      to="https://cubierto.cidtec-uc.com/"
+      googlePlay="https://play.google.com/store/apps/details?id=com.mqinfer12.cubierto"
+      repositorie="https://github.com/MQInfer12/cubierto-app.git"
       blank
     />
   </CardGrid>
