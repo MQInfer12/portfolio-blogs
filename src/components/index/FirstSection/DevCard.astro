@@ -4,7 +4,7 @@ import SocialContainer from "./SocialContainer.astro";
 import DevCardDescription from "./DevCardDescription.astro";
 ---
 
-<div class="dev-card" id="about">
+<div class="dev-card appear100" id="about">
   <div class="dev-card-positioner">
     <img src={ProfilePic} alt="Mauricio-img-card" />
     <div class="absolute">
@@ -33,6 +33,7 @@ import DevCardDescription from "./DevCardDescription.astro";
     background-color: $white;
     border-radius: 1.5rem;
     box-shadow: $box-shadow-200;
+    z-index: 10;
 
     @media screen and (max-width: 1290px) {
       padding: 4rem;

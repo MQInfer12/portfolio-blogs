@@ -1,0 +1,56 @@
+---
+import Link from "../../global/Link.astro";
+import ImgModal from "../Misc/ImgModal.astro";
+
+interface GoTo {
+  text: string;
+  src: string;
+  primary?: boolean;
+}
+
+interface Props {
+  links?: GoTo[];
+  gray?: boolean;
+  column?: boolean;
+  wrap?: boolean;
+  little?: boolean;
+}
+
+const { links = [], gray, column, wrap, little }: Props = Astro.props;
+---
+
+<ul class:list={["navbar-list", { column, wrap }]}>
+  {
+    links.map((v, i) => (
+      <li>
+        <ImgModal src={v.src} id={v.text}>
+          <Link
+            text={v.text}
+            to=""
+            primary={v.primary}
+            gray={gray}
+            little={little}
+            p
+          />
+        </ImgModal>
+      </li>
+    ))
+  }
+</ul>
+
+<style lang="scss">
+  .navbar-list {
+    display: flex;
+    list-style: none;
+  }
+
+  .column {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .wrap {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+</style>

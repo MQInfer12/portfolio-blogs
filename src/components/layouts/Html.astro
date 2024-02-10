@@ -54,4 +54,82 @@ const { title }: Props = Astro.props;
 	main {
 		margin-top: $navbar-height;
 	}
+
+	/* CSS ANIMATIONS ON SCROLL */
+
+  .animationNone {
+    animation: none;
+  }
+
+  .appear100 {
+    opacity: 0;
+    animation: onlyOpacity100 linear forwards;
+    animation-timeline: view();
+    animation-range: -200px 120px;
+  }
+
+  @keyframes onlyOpacity100 {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .appear80 {
+    opacity: 0;
+    animation: onlyOpacity80 linear forwards;
+    animation-timeline: view();
+    animation-range: 100px 350px;
+  }
+
+  @keyframes onlyOpacity80 {
+    to {
+      opacity: .8;
+    }
+  }
+
+  .fadeIn {
+    scale: .8;
+    opacity: 0;
+    filter: blur(5px);
+    animation: fadeInLeft linear forwards;
+    animation-timeline: view();
+    animation-range: 100px 350px;
+  }
+
+  @keyframes fadeInLeft {
+    to {
+      scale: 1;
+      opacity: 1;
+      filter: none;
+    }
+  }
+
+  .fadeInLeft100 {
+    scale: .8;
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    animation: fadeInLeft linear forwards;
+    animation-timeline: view();
+    animation-range: 100px 350px;
+  }
+
+  .fadeInLeft50 {
+    scale: .8;
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    animation: fadeInLeft linear forwards;
+    animation-timeline: view();
+    animation-range: 100px 300px;
+  }
+
+  @keyframes fadeInLeft {
+    to {
+      scale: 1;
+      opacity: 1;
+      filter: none;
+      transform: translateX(0);
+    }
+  }
 </style>

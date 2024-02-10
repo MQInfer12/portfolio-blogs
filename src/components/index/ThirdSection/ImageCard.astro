@@ -2,36 +2,54 @@
 import Link from "../../global/Link.astro";
 
 interface Props {
-  src: string
-  category: string
-  title: string
-  description: string
+  src: string;
+  category: string;
+  title: string;
+  description: string;
   to: string;
   googlePlay?: string;
   blank?: boolean;
   repositorie?: string;
+  disabled?: boolean;
 }
 
-const { category, description, src, title, to, blank, repositorie, googlePlay }: Props = Astro.props;
+const {
+  category,
+  description,
+  src,
+  title,
+  to,
+  blank,
+  repositorie,
+  googlePlay,
+  disabled,
+}: Props = Astro.props;
 ---
 
-<div class="card">
+<div class="card fadeIn">
   <img src={src} />
   <div>
-    <small>{ category }</small>
-    <h3>{ title }</h3>
-    <p>{ description }</p>
+    <small>{category}</small>
+    <h3>{title}</h3>
+    <p>{description}</p>
     <div>
-      <Link text="Visit" to={to} white blank={blank} >
+      <Link disabled={disabled} text="Visit" to={to} white blank={blank}>
         <i class="fa-solid fa-arrow-right" slot="right"></i>
       </Link>
       {
-        googlePlay &&
-        <Link text="" to={googlePlay} white blank={blank} >
-          <i class="fa-brands fa-google-play" slot="right"></i>
-        </Link>
+        googlePlay && (
+          <Link disabled={disabled} text="" to={googlePlay} white blank={blank}>
+            <i class="fa-brands fa-google-play" slot="right" />
+          </Link>
+        )
       }
-      <Link text="" to={repositorie || ""} disabled={!repositorie} primary blank>
+      <Link
+        text=""
+        to={repositorie || ""}
+        disabled={!repositorie}
+        primary
+        blank
+      >
         <i class="fa-solid fa-code" slot="right"></i>
       </Link>
     </div>
@@ -39,8 +57,8 @@ const { category, description, src, title, to, blank, repositorie, googlePlay }:
 </div>
 
 <style lang="scss">
-  @import '/src/styles/variables';
-  
+  @import "/src/styles/variables";
+
   .card {
     display: flex;
     flex-direction: column;
@@ -66,8 +84,8 @@ const { category, description, src, title, to, blank, repositorie, googlePlay }:
         @include body-1;
         color: $gray-900;
         font-weight: 600;
-        margin-bottom: .75rem;
-        margin-top: .25rem;
+        margin-bottom: 0.75rem;
+        margin-top: 0.25rem;
       }
       & > p {
         @include body-3;

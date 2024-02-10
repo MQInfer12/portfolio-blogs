@@ -1,17 +1,31 @@
 ---
 import Links from "../Navbar/Links.astro";
+import LinksImgModal from "../Navbar/LinksImgModal.astro";
+import ImgModal from "../Misc/ImgModal.astro";
 import Logo from "../Navbar/Logo.astro";
 import Copyright from "./Copyright.astro";
 
+import Certificate1 from "../../../assets/certificates/doc1.jpg";
+import Certificate2 from "../../../assets/certificates/doc2.jpg";
+import Certificate3 from "../../../assets/certificates/doc3.jpg";
+import Certificate4 from "../../../assets/certificates/doc4.jpg";
+import Certificate5 from "../../../assets/certificates/doc5.jpg";
+
 const certificationLinks = [{
-  text: "Unifranz - Backend Developer",
-  to: "https://drive.google.com/file/d/1w9XJ7wO0zQIseMCxMbLSblcL9LdbKV_B/view?usp=sharing"
+  text: "Unifranz - Backend Developer - 2022",
+  src: Certificate1
 }, {
-  text: "Unifranz - Hack24 Culture Against Violence",
-  to: "https://drive.google.com/file/d/1MfZPwzkXUPZBJIU-7b1ngdwONvyN_RYz/view?usp=sharing"
+  text: "Unifranz - Hack24 Culture Against Violence - 2022",
+  src: Certificate2
 }, {
-  text: "AssureSoft - 1st Programming Championship",
-  to: "https://drive.google.com/file/d/1Gw2dOLtHkVo5uBc2uWMiF3vwjEUhbgYb/view?usp=sharing"
+  text: "AssureSoft - 1st Programming Championship - 2022",
+  src: Certificate3
+}, {
+  text: "Unifranz - Cubierto multi-disciplinary - 2023",
+  src: Certificate4
+}, {
+  text: "Cochabamba Tourism Mayor's office - Cubierto - 2023",
+  src: Certificate5
 }]
 ---
 
@@ -22,7 +36,7 @@ const certificationLinks = [{
   </div>
   <div class="column">
     <h4>Certifications</h4>
-    <Links little gray column links={certificationLinks} />
+    <LinksImgModal little gray column links={certificationLinks} />
   </div>
   <Copyright />
 </footer>

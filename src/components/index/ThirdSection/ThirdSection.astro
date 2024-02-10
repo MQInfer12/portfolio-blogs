@@ -9,9 +9,10 @@ import TourismLanding from "/src/assets/images/index/tourism_landing.png";
 import LZLanding from "/src/assets/images/index/lz_landing.png";
 import TomattoLanding from '/src/assets/images/index/tomatto_landing.png';
 import CubiertoApp from '/src/assets/images/index/cubierto_app.png';
+import CatastroLanding from '/src/assets/images/index/catastro_landing.png';
 ---
 
-<ExpandableSection>
+<ExpandableSection animate>
   <Description id="projects" />
   <CardGrid 
     childWidth="26.5rem"
@@ -24,6 +25,33 @@ import CubiertoApp from '/src/assets/images/index/cubierto_app.png';
       src={PsicotestLanding}
       to="https://psicotest.cidtec-uc.com/#/"
       repositorie="https://github.com/MQInfer12/psicotest"
+      blank
+    />
+    <ImageCard
+      category="React Native TS - React TS - Express TS"
+      title="Cubierto"
+      description="A hybrid bidding application for the city of Cochabamba designed to avoid food waste in collaboration with the city's restaurants, suppliers and charities."
+      src={CubiertoApp}
+      to="https://cubierto.cidtec-uc.com/"
+      googlePlay="https://play.google.com/store/apps/details?id=com.mqinfer12.cubierto"
+      repositorie="https://github.com/MQInfer12/cubierto-app.git"
+      blank
+    />
+    <ImageCard
+      category="React JS - Flask"
+      title="Doctor Tomatto"
+      description="An artificial intelligence web application that detects tomato leaf diseases and shows infected areas on a map, is a very useful tool for interested growers."
+      src={TomattoLanding}
+      to="http://marcianoquantico.pythonanywhere.com/"
+      blank
+    />
+    <ImageCard
+      category="Svelte TS - .NET Core 7"
+      title="Cadastre Cercado"
+      description="A map portal designed to be used by the citizens of Cochabamba/Bolivia in a way that can be intuitive and easy to use, developed in the installations of Cadastre Cercado."
+      src={CatastroLanding}
+      repositorie="https://github.com/MQInfer12/catastro-portal"
+      to="https://catastro-cocha.web.app/"
       blank
     />
     <ImageCard
@@ -43,24 +71,7 @@ import CubiertoApp from '/src/assets/images/index/cubierto_app.png';
       to="https://lz-shopping.web.app/#/" 
       repositorie="https://github.com/MQInfer12/lz-shopping"
       blank
-    />
-    <ImageCard
-      category="React JS - Flask"
-      title="Doctor Tomatto"
-      description="An artificial intelligence web application that detects tomato leaf diseases and shows infected areas on a map, is a very useful tool for interested growers."
-      src={TomattoLanding}
-      to="http://marcianoquantico.pythonanywhere.com/"
-      blank
-    />
-    <ImageCard
-      category="React Native TS - React TS - Express TS"
-      title="Cubierto"
-      description="A hybrid bidding application for the city of Cochabamba designed to avoid food waste in collaboration with the city's restaurants, suppliers and charities."
-      src={CubiertoApp}
-      to="https://cubierto.cidtec-uc.com/"
-      googlePlay="https://play.google.com/store/apps/details?id=com.mqinfer12.cubierto"
-      repositorie="https://github.com/MQInfer12/cubierto-app.git"
-      blank
+      disabled
     />
   </CardGrid>
   <Link 

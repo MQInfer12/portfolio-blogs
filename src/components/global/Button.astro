@@ -6,13 +6,14 @@ interface Props {
   white?: boolean
   gray?: boolean
   disabled?: boolean
+  noEvents?: boolean
 }
 
-const { text, primary, white, gray, disabled, identifier }: Props = Astro.props;
+const { text, primary, white, gray, disabled, identifier, noEvents }: Props = Astro.props;
 ---
 
 <button 
-  class:list={['button', { "primary-button": primary, "white-button": white, gray }]}  
+  class:list={['button', { "primary-button": primary, "white-button": white, gray, noEvents }]}  
   id={identifier}
   disabled={disabled}
 >
@@ -94,5 +95,9 @@ const { text, primary, white, gray, disabled, identifier }: Props = Astro.props;
     &::after {
       border-bottom: 1px solid $gray-50;
     }
+  }
+
+  .button:active.noEvents {
+    pointer-events: none;
   }
 </style>

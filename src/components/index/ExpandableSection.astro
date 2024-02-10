@@ -1,20 +1,22 @@
 ---
 interface Props {
-  black?: boolean
-  gray?: boolean
-  id?: string
+  black?: boolean;
+  gray?: boolean;
+  id?: string;
+  padding?: string;
+  animate?: boolean;
 }
 
-const { black, gray, id } = Astro.props;
+const { black, gray, id, padding = "6.25rem 2rem", animate } = Astro.props;
 ---
 
-<section class:list={{black, gray}} id={id}>
+<section class:list={{ black, gray, fadeIn: animate }} id={id}>
   <slot />
 </section>
 
-<style lang="scss">
-  @import '/src/styles/variables';
-  
+<style lang="scss" define:vars={{ sectionPadding: padding }}>
+  @import "/src/styles/variables";
+
   section {
     background-color: $white;
     display: flex;
@@ -22,7 +24,7 @@ const { black, gray, id } = Astro.props;
     gap: 3.125rem;
     align-items: center;
     justify-content: center;
-    padding: 6.25rem 2rem;
+    padding: var(--sectionPadding);
 
     @media screen and (max-width: 825px) {
       flex-direction: column;
