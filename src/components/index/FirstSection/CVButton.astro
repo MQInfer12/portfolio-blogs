@@ -1,17 +1,28 @@
 ---
 import Link from "../../global/Link.astro";
 import CV from "../../../assets/documents/curriculum_vitae.pdf";
+import getCurrentLang from "../../../utilities/getCurrentLang";
+import langRender from "../../../utilities/langRender";
+const lang = getCurrentLang(Astro.url.pathname);
 ---
 
 <div>
-  <Link to={CV} download text="Download CV" white >
+  <Link
+    to={CV}
+    download
+    text={langRender(lang, {
+      es: "Descargar CV",
+      en: "Download CV",
+    })}
+    white
+  >
     <i class="fa-solid fa-download" slot="left"></i>
   </Link>
 </div>
 
 <style lang="scss">
-  @import '/src/styles/variables';
-  
+  @import "/src/styles/variables";
+
   div {
     display: flex;
     gap: 1.5rem;

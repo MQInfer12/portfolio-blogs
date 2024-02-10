@@ -1,7 +1,6 @@
 ---
 import Links from "../Navbar/Links.astro";
 import LinksImgModal from "../Navbar/LinksImgModal.astro";
-import ImgModal from "../Misc/ImgModal.astro";
 import Logo from "../Navbar/Logo.astro";
 import Copyright from "./Copyright.astro";
 
@@ -10,23 +9,49 @@ import Certificate2 from "../../../assets/certificates/doc2.jpg";
 import Certificate3 from "../../../assets/certificates/doc3.jpg";
 import Certificate4 from "../../../assets/certificates/doc4.jpg";
 import Certificate5 from "../../../assets/certificates/doc5.jpg";
+import getCurrentLang from "../../../utilities/getCurrentLang";
+import langRender from "../../../utilities/langRender";
 
-const certificationLinks = [{
-  text: "Unifranz - Backend Developer - 2022",
-  src: Certificate1
-}, {
-  text: "Unifranz - Hack24 Culture Against Violence - 2022",
-  src: Certificate2
-}, {
-  text: "AssureSoft - 1st Programming Championship - 2022",
-  src: Certificate3
-}, {
-  text: "Unifranz - Cubierto multi-disciplinary - 2023",
-  src: Certificate4
-}, {
-  text: "Cochabamba Tourism Mayor's office - Cubierto - 2023",
-  src: Certificate5
-}]
+const pathname = Astro.url.pathname;
+const lang = getCurrentLang(pathname);
+
+const certificationLinks = [
+  {
+    text: langRender(lang, {
+      es: "Unifranz - Desarrollador Backend - 2022",
+      en: "Unifranz - Backend Developer - 2022",
+    }),
+    src: Certificate1,
+  },
+  {
+    text: langRender(lang, {
+      es: "Unifranz - Hack24 Cultura contra la violencia - 2022",
+      en: "Unifranz - Hack24 Culture Against Violence - 2022",
+    }),
+    src: Certificate2,
+  },
+  {
+    text: langRender(lang, {
+      es: "AssureSoft - 1er Concurso de Programación - 2022",
+      en: "AssureSoft - 1st Programming Championship - 2022",
+    }),
+    src: Certificate3,
+  },
+  {
+    text: langRender(lang, {
+      es: "Unifranz - Cubierto multi-disciplinario - 2023",
+      en: "Unifranz - Cubierto multi-disciplinary - 2023",
+    }) ,
+    src: Certificate4,
+  },
+  {
+    text: langRender(lang, {
+      es: "Alcaldía de Turismo Cochabamba - Cubierto - 2022",
+      en: "Cochabamba Tourism Mayor's office - Cubierto - 2023",
+    }),
+    src: Certificate5,
+  },
+];
 ---
 
 <footer>
@@ -35,15 +60,22 @@ const certificationLinks = [{
     <Links gray wrap />
   </div>
   <div class="column">
-    <h4>Certifications</h4>
+    <h4>
+      {
+        langRender(lang, {
+          es: "Certificados",
+          en: "Certificates",
+        })
+      }
+    </h4>
     <LinksImgModal little gray column links={certificationLinks} />
   </div>
   <Copyright />
 </footer>
 
 <style lang="scss">
-  @import '/src/styles/variables';
-  
+  @import "/src/styles/variables";
+
   footer {
     display: flex;
     flex-direction: column;
@@ -63,7 +95,7 @@ const certificationLinks = [{
   .column {
     display: flex;
     flex-direction: column;
-    gap: .75rem;
+    gap: 0.75rem;
 
     & > h4 {
       font-size: 1.25rem;

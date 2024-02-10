@@ -1,11 +1,46 @@
 ---
+import getCurrentLang from "../../../utilities/getCurrentLang";
+import langRender from "../../../utilities/langRender";
 import Stat from "./Stat.astro";
+const lang = getCurrentLang(Astro.url.pathname);
 ---
 
 <div class="stadistics">
-  <Stat stadistic="3 Y." text="Experience" />
-  <Stat stadistic="8+" text="Project completed" />
-  <Stat stadistic="20+" text="Technologies" />
+  <Stat
+    stadistic={langRender(lang, {
+      es: "+3 A.",
+      en: "3+ Y.",
+    })}
+    text={langRender(lang, {
+      es: "Experiencia",
+      en: "Experience",
+    })}
+  />
+  <Stat
+    stadistic={
+      langRender(lang, {
+        es: "+8",
+        en: "8+",
+      })
+    }
+    text={
+      langRender(lang, {
+        es: "Proyectos completados",
+        en: "Project finished",
+      })
+    }
+  />
+  <Stat stadistic={
+    langRender(lang, {
+      es: "+20",
+      en: "20+",
+    })
+  } text={
+    langRender(lang, {
+      es: "Tecnologías",
+      en: "Technologies",
+    })
+  } />
 </div>
 
 <style lang="scss">

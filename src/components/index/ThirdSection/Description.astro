@@ -1,22 +1,37 @@
 ---
+import langRender from "../../../utilities/langRender";
+import getCurrentLang from "../../../utilities/getCurrentLang";
+const lang = getCurrentLang(Astro.url.pathname);
+
 interface Props {
-  id?: string
+  id?: string;
 }
 
 const { id } = Astro.props;
 ---
 
 <div id={id}>
-  <h2>Featured Projects</h2>
+  <h2>
+    {
+      langRender(lang, {
+        es: "Proyectos destacados",
+        en: "Featured Projects",
+      })
+    }
+  </h2>
   <p>
-    Each project I take on is a unique opportunity to showcase my skills and creativity, 
-    and I am thrilled to share them with you.
+    {
+      langRender(lang, {
+        es: "Cada proyecto que tomo es una oportunidad única para mostrar mi creatividad y habilidades ¡Y estoy emocionado de compartirlos contigo!",
+        en: "Each project I take on is a unique opportunity to showcase my skills and creativity, and I am thrilled to share them with you.",
+      })
+    }
   </p>
 </div>
 
 <style lang="scss">
-  @import '/src/styles/variables';
-  
+  @import "/src/styles/variables";
+
   div {
     display: flex;
     flex-direction: column;

@@ -1,0 +1,55 @@
+---
+import Html from "../components/layouts/Html.astro";
+import Link from "../components/global/Link.astro";
+import getCurrentLang from "../utilities/getCurrentLang";
+import langRender from "../utilities/langRender";
+
+const lang = getCurrentLang(Astro.url.pathname);
+---
+
+<Html title="404">
+  <section>
+    <small
+      >{
+        langRender(lang, {
+          es: "Parece que te perdiste...",
+          en: "it seems like you got lost...",
+        })
+      }</small
+    >
+    <strong
+      >{
+        langRender(lang, {
+          es: "Recuerda que es peligroso ir solo",
+          en: "Remember that is dangerous to go alone",
+        })
+      }</strong
+    >
+    <Link
+      primary
+      text={langRender(lang, {
+        es: "Volver al inicio",
+        en: "Back to home",
+      })}
+      to={"/portfolio-blogs/" + lang}
+    />
+  </section>
+</Html>
+
+<style lang="scss">
+  section {
+    width: 100%;
+    height: calc(100vh - 6rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+  small {
+    opacity: 0.8;
+  }
+  strong {
+    opacity: 0.8;
+  }
+</style>

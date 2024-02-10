@@ -1,14 +1,31 @@
 ---
+import langRender from "../../../utilities/langRender";
+import getCurrentLang from "../../../utilities/getCurrentLang";
+const lang = getCurrentLang(Astro.url.pathname);
 ---
 
 <div>
-  <h2>Let’s discuss your Project!</h2>
-  <p>Let's start a conversation and see how we can make your project a success!</p>
+  <h2>
+    {
+      langRender(lang, {
+        es: "¡Hablémos de tu proyecto!",
+        en: "Let’s discuss your Project!",
+      })
+    }
+  </h2>
+  <p>
+    {
+      langRender(lang, {
+        es: "¡Conversemos y veamos cómo se puede hacer realidad tu idea!",
+        en: "Let's start a conversation and see how we can make your project a success!",
+      })
+    }
+  </p>
 </div>
 
 <style lang="scss">
-  @import '/src/styles/variables';
-  
+  @import "/src/styles/variables";
+
   div {
     display: flex;
     flex-direction: column;

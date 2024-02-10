@@ -1,25 +1,71 @@
 ---
+import getCurrentLang from "../../../utilities/getCurrentLang";
+import langRender from "../../../utilities/langRender";
 import Link from "../../global/Link.astro";
 import Strong from "../../global/Strong.astro";
+
+const lang = getCurrentLang(Astro.url.pathname);
 ---
 
 <div class="first-description">
-  <h2>Hello, I’m Mauricio Molina.</h2>
+  <h2>
+    {
+      langRender(lang, {
+        es: "Hola, soy Mauricio Molina.",
+        en: "Hello, I’m Mauricio Molina.",
+      })
+    }
+  </h2>
   <p>
-    I'm a <Strong primary>Developer</Strong> and <Strong primary>Software engineer</Strong> based in Cochabamba, Bolivia. 
-    I strives to make beautiful and inmersive web applications 
-    through carefully crafted code and intuitive design.
+    {
+      langRender(lang, {
+        es: "Soy ",
+        en: "I'm a ",
+      })
+    }
+    <Strong primary>
+      {
+        langRender(lang, {
+          es: "Desarrollador",
+          en: "Developer",
+        })
+      }
+    </Strong>
+    {
+      langRender(lang, {
+        es: "e",
+        en: "and",
+      })
+    }
+    <Strong primary>
+      {
+        langRender(lang, {
+          es: "Ingeniero de Software",
+          en: "Software Engineer",
+        })
+      }
+    </Strong>{
+      langRender(lang, {
+        es: " en Cochabamba, Bolivia. Me esfuerzo en hacer aplicaciones web hermosas e inmersivas a través de código creado cuidadosamente y un diseño intuitivo",
+        en: " based in Cochabamba, Bolivia. I strives to make beautiful and inmersive web applications through carefully crafted code and intuitive design.",
+      })
+    }
   </p>
-  <Link 
-    text="Say Hello!" 
-    to="https://wa.me/59176407344" 
-    primary 
+  <Link
+    text={langRender(lang, {
+      es: "¡Saluda!",
+      en: "Say Hello!",
+    })}
+    to="https://wa.me/59176407344"
+    primary
     blank
-  ><i class="fa-brands fa-whatsapp" slot="right"></i></Link>
+  >
+    <i class="fa-brands fa-whatsapp" slot="right"></i>
+  </Link>
 </div>
 
 <style lang="scss">
-  @import '/src/styles/variables';
+  @import "/src/styles/variables";
 
   .first-description {
     display: flex;

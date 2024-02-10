@@ -1,22 +1,43 @@
 ---
 import Link from "../../global/Link.astro";
 import ExpandableSection from "../ExpandableSection.astro";
+import langRender from "../../../utilities/langRender";
+import getCurrentLang from "../../../utilities/getCurrentLang";
+const lang = getCurrentLang(Astro.url.pathname);
 ---
 
 <ExpandableSection black padding="14rem 2rem 6.25rem">
   <h2>
-    Do you have Project Idea?
-    Let's discuss your project!
+    {
+      langRender(lang, {
+        es: "¿Tienes alguna idea? ¡Hablemos de tu proyecto!",
+        en: "Do you have Project Idea? Let's discuss your project!",
+      })
+    }
   </h2>
-  <p>We can work together to ensure your project meets your needs and exceeds your expectations.</p>
-  <Link text="Let's work Together" to="#contact" primary>
+  <p>
+    {
+      langRender(lang, {
+        es: "Trabajemos juntos para asegurarnos que tu proyecto cumpla tus necesidades y exceda tus espectativas.",
+        en: "We can work together to ensure your project meets your needs and exceeds your expectations.",
+      })
+    }
+  </p>
+  <Link
+    text={langRender(lang, {
+      es: "Hagámoslo",
+      en: "Let's work Together",
+    })}
+    to="#contact"
+    primary
+  >
     <i class="fa-solid fa-arrow-right" slot="right"></i>
   </Link>
 </ExpandableSection>
 
 <style lang="scss">
-  @import '/src/styles/variables';
-  
+  @import "/src/styles/variables";
+
   h2 {
     @include heading-1;
     color: $white;

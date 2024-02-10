@@ -1,44 +1,66 @@
 ---
 import Link from "../../global/Link.astro";
+import getCurrentLang from "../../../utilities/getCurrentLang";
+import langRender from "../../../utilities/langRender";
+
+const pathname = Astro.url.pathname;
+const lang = getCurrentLang(pathname);
 
 interface GoTo {
-  text: string
-  to: string
-  primary?: boolean
+  text: string;
+  to: string;
+  primary?: boolean;
 }
 
 interface Props {
-  links?: GoTo[]
-  contactPrimary?: boolean
-  gray?: boolean
-  column?: boolean
-  wrap?: boolean
-  little?: boolean
+  links?: GoTo[];
+  contactPrimary?: boolean;
+  gray?: boolean;
+  column?: boolean;
+  wrap?: boolean;
+  little?: boolean;
 }
 
-const { 
+const {
   contactPrimary,
-  links = [{
-    text: "Home",
-    to: "#home"
-  }, {
-    text: "About",
-    to: "#about"
-  }/* , {
+  links = [
+    {
+      text: langRender(lang, {
+        es: "Inicio",
+        en: "Home",
+      }),
+      to: "#home",
+    },
+    {
+      text: langRender(lang, {
+        es: "Acerca",
+        en: "About",
+      }),
+      to: "#about",
+    } /* , {
     text: "Tools",
     to: "#tools"
-  } */, {
-    text: "Projects",
-    to: "#projects"
-  }, {
-    text: "Contact",
-    to: "#contact",
-    primary: contactPrimary
-  }], 
+  } */,
+    {
+      text: langRender(lang, {
+        es: "Proyectos",
+        en: "Projects",
+      }),
+      to: "#projects",
+    },
+    {
+      text: langRender(lang, {
+        es: "Contacto",
+        en: "Contact",
+      }),
+      to: "#contact",
+      primary: contactPrimary,
+    },
+  ],
   gray,
   column,
   wrap,
-  little
+  little,
 }: Props = Astro.props;
 ---
 
@@ -46,7 +68,13 @@ const {
   {
     links.map((v, i) => (
       <li>
-        <Link text={v.text} to={v.to} primary={v.primary} gray={gray} little={little} />  
+        <Link
+          text={v.text}
+          to={v.to}
+          primary={v.primary}
+          gray={gray}
+          little={little}
+        />
       </li>
     ))
   }

@@ -1,27 +1,45 @@
 ---
-import Link from "../../global/Link.astro";
+import getCurrentLang from "../../../utilities/getCurrentLang";
+import langRender from "../../../utilities/langRender";
 import CVButton from "./CVButton.astro";
+const lang = getCurrentLang(Astro.url.pathname);
 ---
 
 <div class="description-container">
-  <h2>I am Professional Full-stack Developer</h2>
+  <h2>
+    {
+      langRender(lang, {
+        es: "Desarrollador Full-stack Profesional",
+        en: "I am Professional Full-stack Developer",
+      })
+    }
+  </h2>
   <div class="paragraphs">
     <p>
-      My main focus is on creating exceptional digital experiences that enhance user engagement. 
-      Developing responsive and user-friendly functionalities and interfaces, 
-      I bring creativity and innovation to every project I undertake, 
-      ensuring that each website or service I create is not only visually stunning but also highly effective.
+      {
+        langRender(lang, {
+          es: "Me enfoque principal es crear experiencias digitales excepcionales que mejoren el disfrute del usuario. Desarrollando interfaces y funcionalidades responsivas además de amigables, brindo creatividad e innovación en cada proyecto que tomo, asegurándome de que cada web o servicio que creo no solo sea visualmente atractiva, si no también altamente efectiva.",
+          en: "My main focus is on creating exceptional digital experiences that enhance user engagement. Developing responsive and user-friendly functionalities and interfaces, I bring creativity and innovation to every project I undertake, ensuring that each website or service I create is not only visually stunning but also highly effective.",
+        })
+      }
     </p>
-    <p>I specialize in crafting visually appealing and functional websites, web services, and online apps for my clients.</p>
+    <p>
+      {
+        langRender(lang, {
+          es: "Me especializo en crear sitios web y aplicaciones funcionales además de atractivas para mis clientes.",
+          en: "I specialize in crafting visually appealing and functional websites, web services, and online apps for my clients.",
+        })
+      }
+    </p>
   </div>
   <CVButton />
 </div>
 
 <style lang="scss">
-  @import '/src/styles/variables';
-  
+  @import "/src/styles/variables";
+
   .description-container {
-    width: 33.5rem; 
+    width: 33.5rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -29,7 +47,7 @@ import CVButton from "./CVButton.astro";
     & > h2 {
       @include heading-2;
     }
-    
+
     @media screen and (max-width: 960px) {
       max-width: 100%;
       align-items: center;

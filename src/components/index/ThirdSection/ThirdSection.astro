@@ -11,6 +11,9 @@ import TomattoLanding from '/src/assets/images/index/tomatto_landing.png';
 import CubiertoApp from '/src/assets/images/index/cubierto_app.png';
 import CatastroLanding from '/src/assets/images/index/catastro_landing.png';
 import LiderLanding from '/src/assets/images/index/lider_landing.png';
+import langRender from "../../../utilities/langRender";
+import getCurrentLang from "../../../utilities/getCurrentLang";
+const lang = getCurrentLang(Astro.url.pathname);
 ---
 
 <ExpandableSection animate>
@@ -22,7 +25,12 @@ import LiderLanding from '/src/assets/images/index/lider_landing.png';
     <ImageCard
       category="React JS - Laravel"
       title="Psicotest"
-      description="A web application of customizable psychological tests that can be easily shared with QR or direct link, it also includes a calendar for appointments and a realtime chat to solve doubts."
+      description={
+        langRender(lang, {
+          es: "Una aplicación web de tests psicológicos customizables que pueden ser fácilmente compartidos por QR o link directo, además incluye un calendario para citas y un chat en tiempo real.",
+          en: "A web application of customizable psychological tests that can be easily shared with QR or direct link, it also includes a calendar for appointments and a realtime chat to solve doubts.",
+        })
+      }
       src={PsicotestLanding}
       to="https://psicotest.cidtec-uc.com/#/"
       repositorie="https://github.com/MQInfer12/psicotest"
@@ -31,7 +39,12 @@ import LiderLanding from '/src/assets/images/index/lider_landing.png';
     <ImageCard
       category="React Native TS - React TS - Express TS"
       title="Cubierto"
-      description="A hybrid bidding application for the city of Cochabamba designed to avoid food waste in collaboration with the city's restaurants, suppliers and charities."
+      description={
+        langRender(lang, {
+          es: "Una aplicación híbrida para la ciudad de Cochabamba diseñada con el propósito de evitar el desperdicio de comida en colaboración con restaurantes, proveedores y caridades.",
+          en: "A hybrid bidding application for the city of Cochabamba designed to avoid food waste in collaboration with the city's restaurants, suppliers and charities.",
+        })
+      }
       src={CubiertoApp}
       to="https://cubierto.cidtec-uc.com/"
       googlePlay="https://play.google.com/store/apps/details?id=com.mqinfer12.cubierto"
@@ -41,15 +54,30 @@ import LiderLanding from '/src/assets/images/index/lider_landing.png';
     <ImageCard
       category="React JS - Flask"
       title="Doctor Tomatto"
-      description="An artificial intelligence web application that detects tomato leaf diseases and shows infected areas on a map, is a very useful tool for interested growers."
+      description={
+        langRender(lang, {
+          es: "Una aplicación web con IA que detecta enfermades en las hojas de tomate y muestra las áreas infectadas en un mapa, una herramienta muy útil para los agricultores interesados.",
+          en: "An artificial intelligence web application that detects tomato leaf diseases and shows infected areas on a map, is a very useful tool for interested growers.",
+        })
+      }
       src={TomattoLanding}
       to="http://marcianoquantico.pythonanywhere.com/"
       blank
     />
     <ImageCard
       category="Svelte TS - .NET Core 7"
-      title="Cadastre Cercado"
-      description="A map portal designed to be used by the citizens of Cochabamba/Bolivia in a way that can be intuitive and easy to use, developed in the installations of Cadastre Cercado."
+      title={
+        langRender(lang, {
+          es: "Portal web - Catastro Cercado",
+          en: "Web portal - Cadastre Cercado",
+        })
+      }
+      description={
+        langRender(lang, {
+          es: "Un portal de mapas diseñado para ser utilizado por ciudadanos de Cochabamba/Bolivia, de manera que pueda ser intuitiva y fácil de usar, desarrollado en las instalaciones de Catastro Cercado.",
+          en: "A map portal designed to be used by the citizens of Cochabamba/Bolivia in a way that can be intuitive and easy to use, developed in the installations of Cadastre Cercado.",
+        })
+      }
       src={CatastroLanding}
       repositorie="https://github.com/MQInfer12/catastro-portal"
       to="https://catastro-cocha.web.app/"
@@ -57,8 +85,18 @@ import LiderLanding from '/src/assets/images/index/lider_landing.png';
     />
     <ImageCard
       category="Angular - React JS - Laravel"
-      title="Tourism Cochabamba"
-      description="A tourism application developed for the Cochabamba/Bolivia mayor's office to show attractions and events in the city in detail and in 360º, it has an administrator page to modify data."
+      title={
+        langRender(lang, {
+          es: "Cochabamba Turismo",
+          en: "Tourism Cochabamba",
+        })
+      }
+      description={
+        langRender(lang, {
+          es: "Una aplicación web de turismo desarrollada para la Alcaldía de Turismo de Cochabamba/Bolivia que muestra atracciones y eventos de la ciudad en detalle y en 360º.",
+          en: "A tourism application developed for the Cochabamba/Bolivia mayor's office to show attractions and events in the city in detail and in 360º, it has an administrator page to modify data.",
+        })
+      }
       src={TourismLanding}
       to="https://cochabamba-turismo.web.app/#/"
       blank
@@ -67,7 +105,12 @@ import LiderLanding from '/src/assets/images/index/lider_landing.png';
     <ImageCard
       category="React TS - Express TS"
       title="LZ Shopping"
-      description="A web application for a clothing store in Bolivia, in wich you can search, filter and reserve products by your CI number, includes an administrator page for modify data and confirm reserves."
+      description={
+        langRender(lang, {
+          es: "Una aplicación web para una tienda de ropa en Bolivia, en la cual se puede buscar, filtrar y reservar productos según tu CI, incluye una página administrativa",
+          en: "A web application for a clothing store in Bolivia, in wich you can search, filter and reserve products by your CI number, includes an administrator page for modify data and confirm reserves.",
+        })
+      }
       src={LZLanding}
       to="https://lz-shopping.web.app/#/" 
       repositorie="https://github.com/MQInfer12/lz-shopping"
@@ -77,7 +120,12 @@ import LiderLanding from '/src/assets/images/index/lider_landing.png';
     <ImageCard
       category="Astro 4.0"
       title="LIDER Soft"
-      description="Web page developed with love ♡"
+      description={
+        langRender(lang, {
+          es: "Página web desarrollada con cariño ♡",
+          en: "Web page developed with love ♡",
+        })
+      }
       src={LiderLanding}
       to="https://lider-bo.web.app/" 
       repositorie="https://github.com/MQInfer12/lider-landing"
@@ -85,7 +133,12 @@ import LiderLanding from '/src/assets/images/index/lider_landing.png';
     />
   </CardGrid>
   <Link 
-    text="More Projects"
+    text={
+      langRender(lang, {
+        es: "Más proyectos",
+        en: "More Projects",
+      })
+    }
     to="#"
     primary
     disabled

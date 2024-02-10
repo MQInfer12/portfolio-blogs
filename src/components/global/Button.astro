@@ -1,27 +1,31 @@
 ---
 interface Props {
-  text: string
-  identifier: string
-  primary?: boolean
-  white?: boolean
-  gray?: boolean
-  disabled?: boolean
-  noEvents?: boolean
+  text: string;
+  identifier: string;
+  primary?: boolean;
+  white?: boolean;
+  gray?: boolean;
+  disabled?: boolean;
+  noEvents?: boolean;
 }
 
-const { text, primary, white, gray, disabled, identifier, noEvents }: Props = Astro.props;
+const { text, primary, white, gray, disabled, identifier, noEvents }: Props =
+  Astro.props;
 ---
 
-<button 
-  class:list={['button', { "primary-button": primary, "white-button": white, gray, noEvents }]}  
+<button
+  class:list={[
+    "button",
+    { "primary-button": primary, "white-button": white, gray, noEvents },
+  ]}
   id={identifier}
   disabled={disabled}
 >
-  <slot name="left" />{ text }<slot name="right" />
+  <slot name="left" />{text}<slot name="right" />
 </button>
 
 <style lang="scss">
-  @import '/src/styles/variables';
+  @import "/src/styles/variables";
 
   .button {
     cursor: pointer;
@@ -34,7 +38,7 @@ const { text, primary, white, gray, disabled, identifier, noEvents }: Props = As
     color: $black;
     width: max-content;
     display: flex;
-    gap: .75rem;
+    gap: 0.75rem;
     align-items: center;
     transition: all 0.3s;
     position: relative;
