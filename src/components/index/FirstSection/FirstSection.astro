@@ -1,7 +1,7 @@
 ---
 import Description from "./Description.astro";
 import Stats from "./Stats.astro";
-import ProfilePic from "../../../assets/images/index/pic2.jpg";
+import ProfilePic from "../../../assets/images/index/profile.png";
 import DevCard from "./DevCard.astro";
 import GlimpseContainer from "../../global/Glimpse/GlimpseContainer.astro";
 import Glimpse from "../../global/Glimpse/Glimpse.astro";
@@ -13,10 +13,7 @@ import Glimpse from "../../global/Glimpse/Glimpse.astro";
       <Description />
       <Stats />
     </div>
-    <img 
-      src={ProfilePic} 
-      alt="Mauricio-photo" 
-    />
+    <img src={ProfilePic} alt="Mauricio-photo" />
   </div>
   <DevCard />
   <GlimpseContainer>
@@ -27,7 +24,7 @@ import Glimpse from "../../global/Glimpse/Glimpse.astro";
 </section>
 
 <style lang="scss">
-  @import '/src/styles/variables';
+  @import "/src/styles/variables";
 
   .first-section {
     min-height: calc(180dvh - $navbar-height);

@@ -1,5 +1,5 @@
 ---
-import Button from '../../global/Button.astro';
+import Button from "../../global/Button.astro";
 
 interface Props {
   id: string;
@@ -12,12 +12,14 @@ const { id, src } = Astro.props;
 <label for={id}><slot /></label>
 <input type="checkbox" id={id} />
 <div class="container">
-  <label for={id} class="bg" />
+  <label for={id} class="bg"></label>
   <div class="img-container">
     <label for={id} class="button">
-      <Button noEvents primary identifier='button-close-modal' text='X' />
+      <Button noEvents primary identifier="button-close-modal" text="X" />
     </label>
-    <img alt={id} src={src} class="img" />
+    <div>
+      <img alt={id} src={src} class="img" />
+    </div>
   </div>
 </div>
 
@@ -52,7 +54,8 @@ const { id, src } = Astro.props;
   }
   .img-container {
     max-width: 750px;
-    max-height: 480px;
+    max-height: 80vh;
+    overflow: auto;
     position: relative;
   }
   .img {
