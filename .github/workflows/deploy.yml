@@ -16,8 +16,13 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+
       - name: Install, build, and upload your site
-        uses: withastro/action@v0
+        uses: withastro/action@v2
+        # with:
+        # path: .
+        # node-version: 20 # Puedes especificar la versión de Node
+        # package-manager: npm # O yarn/pnpm
 
   deploy:
     needs: build
@@ -28,4 +33,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
