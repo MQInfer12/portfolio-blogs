@@ -21,18 +21,18 @@ const lang = getCurrentLang(Astro.url.pathname);
   <CardGrid childWidth="26.5rem" maxPerRow={3}>
     <ImageCard
       category="React JS - Laravel"
-      title="Psicotest"
+      title="Neurall"
       description={langRender(lang, {
         es: "Una aplicación web de tests psicológicos customizables que pueden ser fácilmente compartidos por QR o link directo, además incluye un calendario para citas y un chat en tiempo real.",
         en: "A web application of customizable psychological tests that can be easily shared with QR or direct link, it also includes a calendar for appointments and a realtime chat to solve doubts.",
       })}
       src={PsicotestLanding}
-      to="https://psicotest.cidtec-uc.com/#/"
-      repositorie="https://github.com/MQInfer12/psicotest"
+      to="https://neurall.cidtec-uc.com/#/"
+      repositorie="https://github.com/MQInfer12/psicotest_v2"
       blank
     />
     <ImageCard
-      category="React Native TS - React TS - Express TS"
+      category="Kotlin - Swift - React TS - Express TS"
       title="Cubierto"
       description={langRender(lang, {
         es: "Una aplicación híbrida para la ciudad de Cochabamba diseñada con el propósito de evitar el desperdicio de comida en colaboración con restaurantes, proveedores y caridades.",
@@ -52,6 +52,7 @@ const lang = getCurrentLang(Astro.url.pathname);
       })}
       src={TomattoLanding}
       to="http://marcianoquantico.pythonanywhere.com/"
+      disabled
       blank
     />
     <ImageCard
